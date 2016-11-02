@@ -15,10 +15,11 @@ $user_id 	= htmlentities($user['id']); // storing the user's username after clea
 </head>
 <body>
 
-<a href="home.php">post info</a>
-<a href="view_info.php">view my info</a>
-<a href="site_data.php">Need a website</a>
-<a href="site_data.php">My panel</a>
+<a href="drafts.php">View Drafts</a>&nbsp;&nbsp;
+<a href="inbox.php">view inbox(quotes)</a>&nbsp;&nbsp;
+<a href="outbox.php">Send requests(outbox)</a>&nbsp;&nbsp;
+<a href="accepted_qoutes.php">my accepted quotes</a>&nbsp;&nbsp;
+<a href="user_panel.php">Home</a>&nbsp;&nbsp;
 <a href="logout.php">Logout</a>
 </body>
 </html>
