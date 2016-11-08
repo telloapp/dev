@@ -25,7 +25,7 @@ $client_payment->client_pay($user_id,$payment_type,$payment_method);
 <form action="#" method="get">
  <table >
 
-        <select name="payment_type" >
+        <select name="payment_type" required="">
 
            <option value="">Payment Type</option> 
            <option value="Direct Payment">Direct Payment</option>
@@ -33,7 +33,7 @@ $client_payment->client_pay($user_id,$payment_type,$payment_method);
            <option value="Credit Payment">Credit Payment</option>
         </select> <br><br><br><br><br>
 
-        <select name="payment_method" >
+        <select name="payment_method" required="">
 
            <option value="">Payment Method</option> 
            <option value="Deposit">Deposit 50%</option>

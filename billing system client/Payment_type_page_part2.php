@@ -14,18 +14,18 @@ $payment_method               = htmlentities($_GET['payment_method']);
 
 
 $client_payment->client_pay($user_id,$payment_type,$payment_method);
-header('Location:direct_tello_payment.php');
+
 }
 
 
 ?>
 <html>
 <head>
-	<body>
+  <body>
 <form action="#" method="get">
  <table >
 
-        <select name="payment_type" >
+        <select name="payment_type" required="">
 
            <option value="">Payment Type</option> 
            <option value="Direct Payment">Direct Payment</option>
@@ -33,7 +33,7 @@ header('Location:direct_tello_payment.php');
            <option value="Credit Payment">Credit Payment</option>
         </select> <br><br><br><br><br>
 
-        <select name="payment_method" >
+        <select name="payment_method" required="">
 
            <option value="">Payment Method</option> 
            
@@ -70,8 +70,3 @@ header('Location:direct_tello_payment.php');
         </div>
         <!-- END BACK TO TOP -->
       </div>
-      <!-- END COPY
-
-  </body>
-</head>
-</html>
