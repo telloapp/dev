@@ -27,7 +27,8 @@ $sendRequests =$client->viewSend($user_id);
 <?php echo $key['website_type'];?><br>
 <?php echo $key['site_name'];?><br>
 <?php echo $key['due_date'];?><br>
-<a href="view_outbox.php?id=<?php echo $key['id'];?>">View details</a><br><br>
+<a href="view_outbox.php?id=<?php echo $key['id'];?>">View details</a>&nbsp;&nbsp;&nbsp;
+<a href="inbox.php?id=<?php echo $key['id'];?>">View replies</a><br><br>
 <?php }?>
 
 

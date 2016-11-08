@@ -9,6 +9,7 @@ $user_id 	= htmlentities($user['id']); // storing the user's username after clea
 $outboxid = $_GET['id'];
 
 $outboxObj =$client->viewSelectedOutbox($outboxid);
+$getPages = $client->viewPages($outboxid);
 
 ?>
 
@@ -28,6 +29,14 @@ $outboxObj =$client->viewSelectedOutbox($outboxid);
 <?php echo $key['website_type'];?><br>
 <?php echo $key['site_name'];?><br>
 <?php echo $key['due_date'];?><br>
+<h4>Your features</h4>
+
+<?php foreach ($getPages as $keys) {?>
+<?php echo $keys['pages'];?><br>
+<?php }?>
+
+
+
 <a href="edit_outbox.php?id=<?php echo $key['id'];?>">Edit</a>&nbsp;
 <a href="dlt_outbox.php?id=<?php echo $key['id'];?>" onclick='return confirm("This Send request will be deleted, continue?")'>Delete</a><br><br>
 <?php }?>

@@ -17,6 +17,7 @@ $user_id 	= htmlentities($user['id']); // storing the user's username after clea
 <ul>
 <li><a href="home.php">post info</a></li>
 <li><a href="view_info.php">view my info</a></li>
+<li><a href="client_panel.php">My dashboard</a></li>
 <li><a href="site_data.php">Need a website</a></li>
 <li><a href="logout.php">Logout</a></li>		
 </ul>

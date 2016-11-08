@@ -21,7 +21,6 @@ $draftsObj=$client->viewDrafts($user_id);
 <a href="client_panel.php">Home</a>
 <br>
 <br>
-
 <?php foreach ($draftsObj as $key) {?>
 <?php echo $key['website_type'];?><br>
 <?php echo $key['site_name'];?><br>
