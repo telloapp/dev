@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bootstrap Dropdown Filter Plugin Example</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<style>
+body { background-color:#fafafa; font-family:'Open Sans';}
+</style>
+</head>
+<body>
+<div id="jquery-script-menu">
+<div class="jquery-script-center">
+
+<div class="jquery-script-clear"></div>
+</div>
+</div>
+    <div class="container" style="margin-top:150px;">
+        
+
+        <hr>
+
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                job titles
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" data-filter >
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Alabama</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Alaska</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Arizona</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Arkansas</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">California</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Colorado</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Connecticut</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Delaware</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Florida</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Georgia</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Hawaii</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Idaho</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Illinois</li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Indiana</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Iowa</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Kansas</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Kentucky</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Louisiana</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Maine</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Maryland</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Massachusetts</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Michigan</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Minnesota</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Mississippi</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Missouri</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Montana</li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Nebraska</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Nevada</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">New Hampshire</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">New Jersey</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">New Mexico</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">New York</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">North Carolina</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">North Dakota</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Ohio</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Oklahoma</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Oregon</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Pennsylvania</li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Rhode Island</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">South Carolina</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">South Dakota</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Tennessee</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Texas</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Utah</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Vermont</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Virginia</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Washington</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">West Virginia</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Wisconsin</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Wyoming</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="http://code.jquery.com/jquery-1.12.2.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="diacritics.js"></script>
+    <script src="bootstrap-dropdown-filter.js"></script>
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>
