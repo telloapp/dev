@@ -14,7 +14,7 @@ $payment_method               = htmlentities($_GET['payment_method']);
 
 
 $client_payment->client_pay($user_id,$payment_type,$payment_method);
-
+header('Location:direct_tello_payment.php');
 }
 
 
@@ -36,7 +36,7 @@ $client_payment->client_pay($user_id,$payment_type,$payment_method);
         <select name="payment_method" >
 
            <option value="">Payment Method</option> 
-           <option value="Deposit">Deposit 50%</option>
+           
            <option value="Full Amount">Full Amount 100%</option>
           
         </select> <br><br><br><br><br>

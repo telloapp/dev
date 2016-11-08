@@ -1,19 +1,22 @@
 <html>
 <head>
-  <body>
-    <span>
-     <a href="index.php?">Home</a>
-   </span>
-     <br>
-     <span>
-     <a href="view_report.php" class="user-link "><i class="fa fa-user"></i>View Report</a> 
-   </span>
-     <br>
- <span>
-     <a href="view_work.php" class="user-link "><i class="fa fa-user"></i>View the work</a> 
-   </span>
-     <br>
- <div class="copyright" style="background: #A9A9A9;">
+	<body>
+    <a href="index.php?">Home</a>&nbsp;&nbsp;&nbsp;
+    <a href="client_deshbord.php?">Desshboard</a>&nbsp;&nbsp;&nbsp;
+    <a href="register.php?">Register</a>&nbsp;&nbsp;&nbsp;
+    <a href="login.php?">Login</a>&nbsp;&nbsp;&nbsp;
+    <a href="logout.php?">Logout</a>&nbsp;&nbsp;&nbsp;
+    <br><br><br><br>
+		<form action="Payment_type_page.php" onsubmit="alert('Wellcome to to tello app ');" method="get">
+ <table >
+
+  
+ 
+    <input type="submit"  value="ACCEPT">
+  </table>
+  
+  </form>
+   <div class="copyright" style="background: #A9A9A9;">
         <div class="container">
           <div class="row">
             <div class="col-xs-12 col-sm-6 text-block" style="color: #fff;">
@@ -37,6 +40,8 @@
         </div>
         <!-- END BACK TO TOP -->
       </div>
-      </body>
+      
+
+</body>
 </head>
 </html>
