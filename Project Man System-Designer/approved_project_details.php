@@ -8,7 +8,9 @@ require 'core/init.php';
 
 $user_id="1";
 
- $new_projects = $projects->new_projects($user_id);
+$id = $_GET['id'];
+
+ $approved_project_details = $projects->approved_projects_details($id) ;
 ?>
 
 <!doctype html>
@@ -17,7 +19,6 @@ $user_id="1";
 <body>
 
 
-<h1> List Of New Projects </h1>
  <td> <a href="new_projects.php" class="user-link active" class="btn btn-danger btn-sm">New Projects</a>
 <a href="inprogress_project.php" class="btn btn-danger btn-sm">Inprogress</a>
 
@@ -36,14 +37,12 @@ $user_id="1";
 
 
 
-                <h3 class="page-title">Project Information</h3>                
+                <h3 class="page-title">Approved Project Information</h3>                
                   <hr>
                              <div class="col-xs-12 noo-col">
-                            
-                              <?php foreach ($new_projects as $row) { ?>
-                              
-
-                                     <div class="property-wrap">
+                           
+                              <?php foreach ($approved_project_details as $row) { ?>
+                               <div class="property-wrap">
 								      
 								      Site Name    : 
 								        <a title="<?php echo $row['site_name']; ?>"><?php echo $row['site_name']; ?></a>
@@ -61,19 +60,37 @@ $user_id="1";
 				                            <div class="">
 				                             Due Date :  <?php echo $row['due_date']; ?>
 				                            </div>
+				                             <div class="">
+				                             Features:  <?php echo $row['features']; ?>
+				                            </div>
+				                            <div class="">
+				                             Extrass :  <?php echo $row['extras']; ?>
+				                            </div>
+				                            <div class="">
+				                             Business Profile :  <?php echo $row['business_profile']; ?>
+				                            </div>
+				                            <div class="">
+				                             Facebook:  <?php echo $row['facebook']; ?>
+				                            </div>
+				                            <div class="">
+				                             Twitter :  <?php echo $row['twitter']; ?>
+				                            </div>
+				                            <div class="">
+				                             Instagram :  <?php echo $row['instagram']; ?>
+				                            </div>
+
 
 				                          </div>
 				                          
 									     </div>
 									    </div>
-                      <a href="new_project_done.php?id=<?php echo $row['id']; ?>" class="btn btn-default btn-xs" onclick='return confirm("Are You Sure You Want To View Project? Once You View This Project It Wil Be Moved To Inprogress Projects")'><i class="fa fa-trash">Seen</i></a>
+                      <!--a href="completed_projects_details.php?id=<?php echo $row['id']; ?>" class="btn btn-default btn-xs" ><i class="fa fa-trash">View Details</i></a-->
                               </td>
               
                               </tr>
                               <?php } ?>                              
                             </table>
                              <hr>
-                              <p><b>Total Number Of Project(s) : <?php echo " "; echo $num_rows = count($new_projects); ?></b>  </p>
                             
 
                 </div>
@@ -85,7 +102,3 @@ $user_id="1";
   <script type="text/javascript" src="script.js"></script>
 
 </html>
-
-
-
-

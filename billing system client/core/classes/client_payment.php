@@ -26,7 +26,18 @@ $query= $this->db->prepare("INSERT INTO `client_payment`(`user_id`, `payment_typ
 		} catch (PDOException $e) {
 			die($e->getMessage());
 		}
-		header('Location:direct_tello_payment.php?c_id='.$id);
+		if ($payment_type == "EFT payment")
+			{
+				header('Location:sage_pay_page.php?c_id='.$id);
+			}
+		elseif($payment_type == "Direct Payment")
+		{
+			header('Location:direct_tello_payment.php?c_id='.$id);
+		}
+		elseif($payment_type == "Direct Payment")
+		{
+			header('Location:sage_pay_page.php?c_id='.$id);
+		}
 	}
 
 		public function insert_id($id)
