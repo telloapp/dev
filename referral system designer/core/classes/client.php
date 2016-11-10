@@ -569,7 +569,8 @@ if(isset($_FILES['files'])){
 
 	public function viewInbox($site_id)
 	{
-		$query=$this->db->prepare("SELECT t1.designer_id, t1.quote_price,t1.finish_date,t1.quote_num,t1.basic_m_amt,t1.advanced_m_amt,t1.basic_m_period,t1.advanced_m_period, t2.id,t2.email,t2.contacts FROM designer_quote t1 INNER JOIN designer t2 ON t1.designer_id=t2.id WHERE `site_id` = ? AND status = 'reply'");
+		$query=$this->db->prepare("SELECT t1.designer_id, t1.quote_price,t1.finish_date,t1.quote_num,t1.basic_m_amt,t1.advanced_m_amt,t1.basic_m_period,t1.advanced_m_period, t2.id,t2.email,t2.contacts, t2.username, t3.id FROM designer t2 INNER JOIN designer_quote t1 ON t1.designer_id=t2.id INNER JOIN site_data t3 ON t3.id = t1.site_id
+		 WHERE `site_id` = ?");
 		$query->bindValue(1,$site_id);
 
 
@@ -585,7 +586,7 @@ if(isset($_FILES['files'])){
 
 /*List all features from features table*/
 			public function list_features(){
-		$query	= $this->db->prepare("SELECT * FROM features ");
+		$query = $this->db->prepare("SELECT * FROM features ");
 		try {
 			$query->execute();
 
@@ -697,7 +698,61 @@ public function all_uploaded_files(){
 		} catch (PDOException $e) {
 			die($e->getMessage());
 		}
-	}		
+	}	
+
+		/*Add status yes in designer_quote table column status1 when client accept quotation*/
+	public function addStatus($dd,$site_id)
+	{
+		$quote_accepted = 'yes';
+		$query = $this->db->prepare("UPDATE `designer_quote` SET `date_accepted` = ?, `quote_accepted` = ? WHERE `site_id` = ?");
+		
+		$query->bindValue(1,$dd);
+		$query->bindValue(2,$quote_accepted);
+		$query->bindValue(3,$site_id);
+			try {
+			$query->execute();
+
+		} catch (PDOException $e) {
+			die($e->getMessage());
+		}
+
+	}	
+
+		public function ViewAcceptedQoutes($user_id)
+	{
+		$query = $this->db->prepare("SELECT t1.id, t1.designer_id,t1.site_id,t1.quote_price,t1.finish_date,t1.date_accepted,t1.basic_m_amt, t1.advanced_m_amt,t1.basic_m_period,t1.advanced_m_period, t2.id, t2.user_id,t3.id, t3.username FROM designer_quote t1 INNER JOIN site_data t2 ON t2.id = t1.site_id INNER JOIN designer t3 ON t3.id = t1.designer_id WHERE t2.user_id = ?");
+		
+		$query->bindValue(1,$user_id);
+		
+		try{
+
+			$query->execute();
+
+			return $query->fetchAll();
+
+		} catch(PDOException $e){
+
+			die($e->getMessage());
+		}
+
+	}
+
+	/*public function dltQoute($quoteId)
+	{
+		$query=$this->db->prepare("DELETE FROM designer_quote WHERE site_id = ?");
+		$query->bindValue(1,$quoteId);
+
+			try{
+
+			$query->execute();
+
+		} catch(PDOException $e){
+
+			die($e->getMessage());
+		}
+
+	}*/
+
 
 }
 ?>

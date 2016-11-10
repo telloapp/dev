@@ -7,7 +7,7 @@ $user_id 	= htmlentities($user['id']); // storing the user's username after clea
 
 if (isset($_POST['btn-upload'])) {
 
-$status = "draft";
+$status = "send";
 $origin = "tello";
 
 $site_type		= htmlentities($_POST['website_type']);
