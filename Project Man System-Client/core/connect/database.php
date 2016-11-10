@@ -1,9 +1,9 @@
 <?php 
 $config = array(
 	'host'		=> 'localhost',
-	'username' 	=> 'root',
-	'password' 	=> '',
-	'dbname' 	=> 'tello_app'
+	'username' 	=> 'salesapp',
+	'password' 	=> 'salesapp',
+	'dbname' 	=> 'salesapp'
 );
 
 $db = new PDO('mysql:host=' . $config['host'] . ';dbname=' . $config['dbname'], $config['username'], $config['password']);
