@@ -1,8 +1,9 @@
+
 <html>
 <head>
 	<body>
     <a href="index.php?">Home</a>&nbsp;&nbsp;&nbsp;
-    <a href="client_deshbord.php?">Desshboard</a>&nbsp;&nbsp;&nbsp;
+    <a href="client_deshbord.php?">Dashboard</a>&nbsp;&nbsp;&nbsp;
     <a href="register.php?">Register</a>&nbsp;&nbsp;&nbsp;
     <a href="login.php?">Login</a>&nbsp;&nbsp;&nbsp;
     <a href="logout.php?">Logout</a>&nbsp;&nbsp;&nbsp;
@@ -44,4 +45,5 @@
 
 </body>
 </head>
+
 </html>
