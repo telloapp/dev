@@ -11,7 +11,7 @@ $featuresIDobj = $client->view_features($outboxid);
 $features = $client->list_unselected($outboxid);
 
 if (isset($_POST['submit'])) {
-$status = "send";
+$status = "sent";
 	$feature_id = $_POST['feature_id'];
 	$client->add_features($user_id, $feature_id,$outboxid,$status);
 	$client->updateStatus($outboxid);

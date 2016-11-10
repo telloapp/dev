@@ -12,7 +12,7 @@ $features = $client->list_features();
 
 if (isset($_POST['submit'])) {
 
-$status = "saved";
+$status = "sent";
 $origin = "tello";
 $website_type = htmlentities($_POST['website_type']);
 $site_name = htmlentities($_POST['site_name']);

@@ -11,7 +11,7 @@ $featuresIDobj = $client->view_features($id);
 $features = $client->list_unselected($id);
 
 if (isset($_POST['submit'])) {
-$status = "send";
+$status = "sent";
 	$feature_id = $_POST['feature_id'];
 	$client->add_features($user_id, $feature_id,$id,$status);
 	$client->updateStatus($id);

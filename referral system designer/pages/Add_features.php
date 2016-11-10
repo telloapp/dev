@@ -12,7 +12,7 @@ $features = $client->list_features();
 
 if (isset($_POST['submit'])) {
 
-$status = "send";
+$status = "sent";
 	$feature_id = $_POST['feature_id'];
 	$client->add_features($user_id, $feature_id,$request_id,$status);
 	/*function call to insert id into business profile table*/

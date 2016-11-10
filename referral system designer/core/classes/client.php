@@ -268,7 +268,7 @@ if(isset($_FILES['files'])){
 	
 	public function viewSend($id)
 	{
-		$query = $this->db->prepare("SELECT * FROM `site_data` WHERE `status` = 'send' AND user_id=?");
+		$query = $this->db->prepare("SELECT * FROM `site_data` WHERE `status` = 'sent' AND user_id=?");
 		$query->bindValue(1,$id);
 
 			try{
@@ -451,7 +451,7 @@ if(isset($_FILES['files'])){
 	}
 		public function dlt_outbox($outboxId)
 	{
-		$query = $this->db->prepare("DELETE FROM `site_data` WHERE `id` = ? AND `status` = 'send'");
+		$query = $this->db->prepare("DELETE FROM `site_data` WHERE `id` = ? AND `status` = 'sent'");
 		$query->bindValue(1,$outboxId);
 				try{
 			$query->execute();
@@ -512,7 +512,7 @@ if(isset($_FILES['files'])){
 
 	public function updateStatus($id)
 	{
-		$query = $this->db->prepare("UPDATE `site_data` SET `status` = 'send' WHERE `id` = ?");
+		$query = $this->db->prepare("UPDATE `site_data` SET `status` = 'sent' WHERE `id` = ?");
 		$query->bindValue(1,$id);
 
 			try {
