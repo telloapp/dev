@@ -709,12 +709,20 @@ public function all_uploaded_files(){
 		$query->bindValue(1,$dd);
 		$query->bindValue(2,$quote_accepted);
 		$query->bindValue(3,$site_id);
+
+		if ($query) {
+			$Qs = 'no';
+			$query=$this->prepare("UPDATE designer_quote SET quote_accepted = ? WHERE `site_id` != ? AND quote_accepted != 'yes' ");
+			$query->bindValue(1,$Qs);
+			$query->bindValue(2,$site_id);
+
 			try {
 			$query->execute();
 
 		} catch (PDOException $e) {
 			die($e->getMessage());
 		}
+	}
 
 	}	
 
