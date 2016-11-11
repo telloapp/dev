@@ -20,11 +20,11 @@ $reference 		= htmlentities($_POST['reference']);
 $price 			= htmlentities($_POST['price']);
 $listing_type 	= htmlentities($_POST['listing_type']);
 
-$users->insertuserInfo($user_id,$name, $email, $website, $video_link, $contact, $province, $city, $surbub, $genre, $reference, $price, $listing_type);
+$client->insertuserInfo($user_id,$name, $email, $website, $video_link, $contact, $province, $city, $surbub, $genre, $reference, $price, $listing_type);
 
 
 $file_name=isset($_POST['files']);
-$users->addimage($user_id, $file_name);
+$client->addimage($user_id, $file_name);
 
 header('Location:user_panel.php');
 
