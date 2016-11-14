@@ -2,11 +2,15 @@
 <head>
   <body>
     <span>
-     <a href="index.php?">Home</a>
+     <a href="index.php">Home</a>
    </span>
      <br>
      <span>
      <a href="view_report.php" class="user-link "><i class="fa fa-user"></i>View Report</a> 
+   </span>
+    <br>
+ <span>
+     <a href="client_payment_status.php" class="user-link "><i class="fa fa-user"></i>Payment</a> 
    </span>
      <br>
  <span>

@@ -8,16 +8,17 @@ class client_payment{
 	}	
 	//===========insert into client payment ===========
 
-	public function client_pay($user_id,$payment_type,$payment_method)
+	public function client_pay($user_id,$payment_type,$payment_method,$client_status)
 
 {
 	
-$query= $this->db->prepare("INSERT INTO `client_payment`(`user_id`, `payment_type`,`payment_method`) VALUES (?,?,?)");
+$query= $this->db->prepare("INSERT INTO `client_payment`(`user_id`, `payment_type`,`payment_method`,`client_status`) VALUES (?,?,?,?)");
 
 		
 		$query->bindValue(1,$user_id);
 		$query->bindValue(2,$payment_type);
 		$query->bindValue(3,$payment_method);
+		$query->bindValue(4,$client_status);
 		
 		try {
 			$query->execute();
@@ -125,7 +126,7 @@ if(isset($_POST['btn-upload']))
 
   <script>
   alert('successfully uploaded');
-        window.location.href='index.php?success'; // note : this js
+        window.location.href='billing_note.php?success'; // note : this js
   </script>
   <?php
  }
@@ -134,7 +135,7 @@ if(isset($_POST['btn-upload']))
   ?>
   <script>
   alert('error while uploading file');               // note : this js
-        window.location.href='index.php?fail';
+        window.location.href='billing_note.php?fail';
         </script>
 
 
@@ -173,7 +174,42 @@ public function all_uploaded_files($user_id){
 		} catch (PDOException $e) {
 			die($e->getMessage());
 		}
-	}	
+	}
+	public function all_pending($user_id){
+		global $db;
+
+		$query	= $this->db->prepare("SELECT * FROM client_payment t1 INNER JOIN users t2 ON t1.user_id=t2.id INNER JOIN tbl_uploads t3 ON t3.c_id = t1.c_id WHERE t1.user_id = ?  AND t1.client_status = 'Pending'  ");
+		$query->bindValue(1,$user_id);
+	
+
+		try {
+			$query->execute();
+
+			return $query->fetchAll();
+
+		} catch (PDOException $e) {
+			die($e->getMessage());
+		}
+	}
+
+	public function all_complated($user_id){
+		global $db;
+
+
+
+		$query	= $this->db->prepare("SELECT * FROM client_payment t1 INNER JOIN users t2 ON t1.user_id=t2.id INNER JOIN tbl_uploads t3 ON t3.c_id = t1.c_id WHERE t1.user_id = ?  AND t1.client_status = 'Complited' ");
+		$query->bindValue(1,$user_id);
+	
+
+		try {
+			$query->execute();
+
+			return $query->fetchAll();
+
+		} catch (PDOException $e) {
+			die($e->getMessage());
+		}
+	}			
 	
 }
 
