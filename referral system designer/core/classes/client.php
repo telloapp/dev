@@ -684,6 +684,18 @@ if(isset($_POST['btn-upload']))
 		}
 }
 
+public function dlt_profile($outboxId)
+{
+	$query = $this->db->prepare("DELETE FROM `business_profile` WHERE `site_id` = ?");
+	$query->bindValue(1,$outboxId);
+	try {
+			$query->execute();
+		} catch (PDOException $e) {
+			die($e->getMessage());
+		}
+
+}
+
 
 public function all_uploaded_files(){
 		global $db;

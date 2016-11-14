@@ -1,15 +1,11 @@
 <?php
 require '../core/init.php';
 $general->logged_out_protect();
-
 $username 	= htmlentities($user['username']); // storing the user's username after clearning for any html tags.
 $user_id 	= htmlentities($user['id']); // storing the user's username after clearning for any html tags.
-
 if (isset($_POST['btn-upload'])) {
-
 $status = "sent";
 $origin = "tello";
-
 $site_type		= htmlentities($_POST['website_type']);
 $site_name 		= htmlentities($_POST['site_name']);
 $due_date 		= htmlentities($_POST['due_date']);
@@ -17,18 +13,13 @@ $no_of_pages 	= htmlentities($_POST['no_of_pages']);
 $facebook 		= htmlentities($_POST['facebook']);
 $twitter 		= htmlentities($_POST['twitter']);
 $instagram 		= htmlentities($_POST['instagram']);
-
 $client->insert_siteData($user_id,$site_type,$status,$origin,$site_name,$due_date,$no_of_pages,$facebook,$twitter,$instagram);
 $client->upload_file();
 $id = mysql_insert_id();
-
 }
-
 else if (isset($_POST['save'])) {
-
 $status = "draft";
 $origin = "tello";
-
 $site_type		= htmlentities($_POST['website_type']);
 $site_name 		= htmlentities($_POST['site_name']);
 $due_date 		= htmlentities($_POST['due_date']);
@@ -36,12 +27,9 @@ $no_of_pages 	= htmlentities($_POST['no_of_pages']);
 $facebook 		= htmlentities($_POST['facebook']);
 $twitter 		= htmlentities($_POST['twitter']);
 $instagram 		= htmlentities($_POST['instagram']);
-
 $client-> insert_siteData($user_id,$site_type,$status,$origin,$site_name,$due_date,$no_of_pages,$facebook,$twitter,$instagram);
 header('location:client_panel.php');	
 }
-
-
 ?>
 
 <!DOCTYPE html>
@@ -50,9 +38,7 @@ header('location:client_panel.php');
 	<title></title>
 </head>
 <body>
-
 <ul>
-
 	<li><a href="client_panel.php">my dashboard</a></li>
 </ul>
 <form action="" method="POST" enctype="multipart/form-data">
@@ -82,7 +68,6 @@ placeholder="How many pages for your site"><br><br>
 <label>Instergram:</label>&nbsp;
 <input type="text" name ="instagram" value="<?php if(isset($_POST['instagram'])) echo htmlentities($_POST['instagram']);?>"><br>
 <br><br>
-
 <input type="hidden" name="user_id" value="<?php echo "$user_id ";?>">
 <input type="submit" name="btn-upload" value="Save and continue">
 <input type="submit" name="save" value="Save and Exit">
@@ -92,7 +77,6 @@ placeholder="How many pages for your site"><br><br>
 <label>File Uploaded Successfully...<a href="view.php">click here to view file.</a></label>
 <?php }
 else if(isset($_GET['fail'])){ ?>
-
 <label>Problem While File Uploading !</label>
 <?php } ?>
 
