@@ -11,9 +11,10 @@ if (isset($_GET['submit'])) {
 
 $payment_type               = htmlentities($_GET['payment_type']);
 $payment_method               = htmlentities($_GET['payment_method']);
+$client_status = 'Pending';
 
 
-$client_payment->client_pay($user_id,$payment_type,$payment_method);
+$client_payment->client_pay($user_id,$payment_type,$payment_method,$client_status);
 
 }
 
