@@ -3,12 +3,12 @@
 $thispage = 'upload';
 error_reporting(E_ALL);
 require './core/init.php';
-
+//
 ?>
 
 <html>
 <head>
-	<body>
+	<body> 
 <h3><p>HI welcome  to tello payment ,Please Note: Your submission will be reviewed by an Administrator within 48 hours during the working days Excluding weekands and public holidays </p></h3>
 
 
