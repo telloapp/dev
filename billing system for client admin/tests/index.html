@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>jQuery Listfilter</title>
+  <link rel="stylesheet" href="qunit.css">
+</head>
+<body>
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+
+  <form name="filterform">
+      <label>Filter<input type="text" name="filterinput" id="filterinput"></input></label>
+      <input type="button" name="clear" value="Clear" id="clearfilter"></input>
+  </form>
+  <ul id="mylist">
+      <li>One</li>
+      <li>Two</li>
+      <li>Three</li>
+      <li>Four</li>
+      <li>Five</li>
+  </ul>
+  <form name="tablefilterform">
+      <label>Filter<input type="text" name="tablefilterinput" id="tablefilterinput"></input></label>
+      <input type="button" name="clear" value="Clear" id="tableclearfilter"></input>
+  </form>
+  <table id="mytable">
+      <tr><td>One</td></tr>
+      <tr><td>Two</td></tr>
+      <tr><td>Three</td></tr>
+      <tr><td>Four</td></tr>
+      <tr><td>Five</td></tr>
+  </table>
+
+  <script src="jquery-2.1.4.min.js"></script>
+  <script src="qunit.js"></script>
+  <script src="/testem.js"></script>
+  <script src="../jquery.listfilter.js" data-cover></script>
+  <script src="tests.js"></script>
+</body>
+</html>
