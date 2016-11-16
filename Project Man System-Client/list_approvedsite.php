@@ -5,18 +5,7 @@ $id   = htmlentities($user['id']); // storing the user's username after clearnin
 
 
 
-$list_inprogress = $client_project->view_inprogress();
-
-if(isset($_POST['submit']))
-{
-
-    $site_name              = htmlentities($_POST['site_name']);
-    $website_type           = htmlentities($_POST['website_type']);
-    $status                 = htmlentities($_POST['status']);
-    $social_link            = htmlentities($_POST['social_link']);
-header("Location: " . $_SERVER['REQUEST_URI']);
-}
-
+$view_aproved_site = $client_project->list_aproved_site($id);
 
 
 ?>
@@ -31,24 +20,24 @@ header("Location: " . $_SERVER['REQUEST_URI']);
 </head>
 <body>
 
-<h1>list of In Progress Site</h1>
+<h1>list of All Approved Site</h1>
 
  <table width="100%" border="1" cellspacing="1" cellpadding="1">
                                   <tr>
                                   <th>Site Name</th>
+                                  <th>Approved Date</th>
                                   
-                                  <th>View Details of a Site</th>
-                                  <th>Cancel Site</th>
+                                 
                                 </tr>
 
                                  <?php
-                                foreach ( $list_inprogress as $row ) {?>
+                                foreach ( $view_aproved_site as $row ) {?>
   
                                   <tr>
                                   <th><?php echo $row['site_name'] ?></a></th>
+                                  <th><?php echo $row['aprove_date'] ?></a></th>
                                  
-                                <th><a href="viewsiteinfo.php?id=<?php echo $row['id'];?>">Veiw Progress</a><th>
-                                <a href="cancel_site.php?id=<?php echo $row['id'];?>" onclick='return confirm("Are you sure you want to Cancell Site?")'>Cancell Site</a>
+                              
                                 </tr>
 
                   <?php }?>

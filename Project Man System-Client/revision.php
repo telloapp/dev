@@ -1,22 +1,21 @@
 <?php
 require 'core/init.php';
 
-$id   = htmlentities($user['id']); // storing the user's username after clearning for any html tags.
+$user_id   = htmlentities($user['id']); // storing the user's username after clearning for any html tags.
 
-$site_id = $_GET['id'];
-$show_revisions =$client_project->view_project_tb($id);
+$site_id = $_GET['site_id'];
+$show_revisions =$client_project->view_project_tb($user_id);
 if(isset($_POST['save'])){
 
 $start_date = date('Y-m-d');
 $end_date   =date('Y-m-d', strtotime(' + 3 days'));
  $status    ="Not Done";
+ $revision_num= "complete";
 
     $revision_data            = htmlentities($_POST['revision_data']);
-    $start_date               = htmlentities($_POST['start_date']);
-    $end_date                 = htmlentities($_POST['end_date']);
+    
 
-
-$client_project->insert_in_to_revision($user_id,$site_id, $status, $revision_data,$start_date,$end_date,$revision_add); //insert function cshow_revisions
+$client_project->insert_in_to_revision($user_id,$site_id, $status, $revision_data,$start_date,$end_date,$revision_num); //insert function cshow_revisions
 
 }
 

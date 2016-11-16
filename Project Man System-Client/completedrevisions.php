@@ -55,7 +55,7 @@ header("Location: " . $_SERVER['REQUEST_URI']);
                                   <tr>
                                   <th><?php echo $row['site_name'] ?></a></th>
                                   <th><span style="color: #0000FF;"> <a title="handoutt" href="http://www.handoutt.co.za/" target="_blank" style="color: #0000FF;">Handout technologies</a>.</span></th>                               
-                                   <th><a href="revision.php">Aprrove Site</a></th>
+                                   <th><a href="aprove_site.php?id=<?php echo $row['id'];?>">Aprrove Site</a></th>
                                 
                                 <th><?php if ($countrows >= 3) { ?>
                               <a href="clientcomplains.php?id=<?php echo $row['id'];?>" onclick='return confirm("You can only make complins after three revirions")'>Complains</a>    

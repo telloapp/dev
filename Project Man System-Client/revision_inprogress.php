@@ -7,17 +7,6 @@ $site_id = $_GET['site_id'];
 
 $inprogress_revisions = $client_project->list_of_revision($site_id);
 
-if(isset($_POST['submit']))
-{
-
-    $start_date              = htmlentities($_POST['start_date']);
-    $end_date               = htmlentities($_POST['end_date']);
-    $status                 = htmlentities($_POST['status']);
-    $site_name                 = htmlentities($_POST['site_name']);
-  
-header("Location: " . $_SERVER['REQUEST_URI']);
-
-}
 
 
 ?>
