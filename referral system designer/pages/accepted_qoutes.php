@@ -15,7 +15,11 @@ $QuoteObj = $client->ViewAcceptedQoutes($user_id);
 	<title></title>
 </head>
 <body>
-
+<?php if (empty($QuoteObj)) { ?>
+<?php echo "You don't have any quotes Accepted yet.";?><br>
+<?php echo "Please check replies for your qoute requests.";?><br>
+<a href="outbox.php">OK</a>
+<?php } else { ?>
 <h2>My Accepted quotes</h2><hr>
 <a href="client_panel.php">Home</a>
 <br>
@@ -30,7 +34,7 @@ Basic Maintenance amount :&nbsp;<?php echo $rows['basic_m_amt'];?>&nbsp;Period :
 advanced Maintenance amount :&nbsp;<?php echo $rows['advanced_m_amt'];?>&nbsp;Period :&nbsp;<?php echo $rows['advanced_m_period'];?>&nbsp;days<br><br>
 <!--<a href="removeQuote.php?site_id=<?php echo $rows['site_id'];?>">remove quote</a>-->
 
-<?php }?>
+<?php } }?>
 
 </body>
 </html>

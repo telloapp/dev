@@ -27,6 +27,11 @@ header('location:client_panel.php');
 	<title></title>
 </head>
 <body>
+<?php if (empty($designerQuote)) { ?>
+<?php echo "No qoutation has been sent yet";?><br>
+<?php echo "Keep on checking for any replies";?><br>
+<a href="outbox.php">OK</a>
+<?php } else { ?>
 
 <h2>Quotation replies</h2><hr>
 <a href="outbox.php">Back</a>
@@ -44,7 +49,7 @@ advanced Maintenance amount :&nbsp;<?php echo $key['advanced_m_amt'];?>&nbsp;Per
 
 <input type="submit" name="submit" value="accept Quotation">
 
-<?php }?>
+<?php } }?>
 </form>
 </body>
 </html>

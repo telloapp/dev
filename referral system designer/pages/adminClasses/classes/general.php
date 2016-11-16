@@ -9,7 +9,7 @@ class General
 	{
 		if ($this->logged_in() === true)
 		{
-			header('Location: user_panel.php');
+			header('Location: admin_panel.php');
 			exit();		
 		}
 	}
@@ -17,7 +17,7 @@ class General
 	{
 		if ($this->logged_in() === false)
 		{
-			header('Location: clientSignin.php');
+			header('Location: admin_Login.php');
 			exit();
 		}	
 	}

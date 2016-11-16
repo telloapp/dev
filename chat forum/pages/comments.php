@@ -34,6 +34,9 @@ $chartforum->delete_notifications($m_id,$designer_id); // funtion to update stat
 		<form method="post" action="">
 
 		<?php foreach ($display_comments as $row) { ?>
+<<<<<<< HEAD
+			<?php echo $row['username']?>&nbsp; :
+=======
 			<?php foreach ($display_comments as $row) { ?>
 		<?php if ($row['designer_id'] != 0) { ?>
 			<?php echo $row['username']?>&nbsp; :
@@ -41,6 +44,7 @@ $chartforum->delete_notifications($m_id,$designer_id); // funtion to update stat
 		<?php } elseif  ($row['designer_id'] == 0) { ?>
 		 <?php echo 'Admin'?>&nbsp; :
 		<?php } ?>
+>>>>>>> ad615fd00509f26119eed253aa51ce1385844523
 		     <?php echo $row['reply']?> &nbsp;...
              <?php echo $row['likes']?> likes&nbsp;
 
