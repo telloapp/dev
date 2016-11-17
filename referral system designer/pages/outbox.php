@@ -11,6 +11,12 @@ $sendRequests =$client->viewSend($user_id);
 	<title></title>
 </head>
 <body>
+<?php if (empty($sendRequests)) { ?>
+<?php echo "You don't have any request for quotation sent yet.";?><br>
+<a href="client_panel.php">OK</a><br>
+<?php echo "Do you want a website?";?>&nbsp;<a href="site_Data.php">Fill in</a>&nbsp;<?php echo "your website data";?><br>
+
+<?php } else { ?>
 <h2>My send requests</h2><hr>
 <a href="client_panel.php">Home</a>
 <br><br>
@@ -20,6 +26,6 @@ $sendRequests =$client->viewSend($user_id);
 <?php echo $key['due_date'];?><br>
 <a href="view_outbox.php?id=<?php echo $key['id'];?>">View details</a>&nbsp;&nbsp;&nbsp;
 <a href="inbox.php?id=<?php echo $key['id'];?>">View replies</a><br><br>
-<?php }?>
+<?php } } ?>
 </body>
 </html>

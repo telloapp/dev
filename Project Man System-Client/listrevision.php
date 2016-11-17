@@ -4,11 +4,10 @@ $general->logged_out_protect();
 
 
 $id   = htmlentities($user['id']); // storing the user's id after clearning for any html tags.
-$site_id = $_GET['site_id'];
+$site_id = $_GET['id'];
 $count_all_revision = $client_project->count_revisions($id,$site_id);
 $countrows = count($count_all_revision);
 
-//$num_rows="";
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +18,7 @@ $countrows = count($count_all_revision);
 </head>
 <body>
 
-<h1>list of Revision </h1>
+<h1>list Site  of Revision </h1>
 <p></p>
 <ol>
 

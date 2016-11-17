@@ -4,7 +4,7 @@ $general->logged_in_protect();
 
 if (isset($_POST['submit'])) {
 
-	if(empty($_POST['username']) || empty($_POST['password']) || empty($_POST['email'])  || empty($_POST['contact'])){
+	if(empty($_POST['username']) || empty($_POST['password']) || empty($_POST['email'])  || empty($_POST['contacts'])){
 
 		$errors[] = 'You must fill in all of the fields.';
 
@@ -35,7 +35,7 @@ if (isset($_POST['submit'])) {
 		$username 	= htmlentities($_POST['username']);
 		$password 	= $_POST['password'];
 		$email 		= htmlentities($_POST['email']);
-		$contact = htmlentities($_POST['contact']);
+		$contact    = htmlentities($_POST['contacts']);
 		
 		$client->register($username, $password, $email, $contact);
 		$login = $client->login($username, $password);
@@ -43,7 +43,7 @@ if (isset($_POST['submit'])) {
 			$errors[] = 'Sorry, that username or password is invalid';
 		}else {
 			$_SESSION['id'] =  $login;
-			header('Location: client_Panel.php');
+			header('Location:user_panel.php');
 			exit();
 		}
 		exit();
@@ -59,23 +59,20 @@ if (isset($_POST['submit'])) {
     <title>User reqistration</title>
 
 </head>
-<body class="page-brand">
-
-    
-                                        <h1 class="card-heading">user registration form</h1>
-    <form action="" method="POST">
-    
+<body>
+<h1>user registration form</h1>
+    <form action="" method="POST">    
         <label>e-mail<span>*</span></label>
-        <input class="form-control" type="email" name="email" required><br><br>
+        <input type="text" name="email" required><br><br>
         <label class=>contact<span>*</span></label>
-        <input class="form-control" type="text" name="contact" required><br><br>
+        <input type="text" name="contacts" required><br><br>
         <label >Username<span>*</span></label>
-        <input class="form-control" type="texr" name="username" required><br><br>
-        <label class="" for="ui_login_password">password<span>*</span></label>
-        <input class="form-control" type="password" name="password" required><br><br>
+        <input type="text" name="username" required><br><br>
+        <label>password<span>*</span></label>
+        <input type="password" name="password" required><br><br>
 
-        <button name="submit">Submit</button>
-        <input type="reset" class="btn btn-default pull-right" name="submit" value="clear">                                    
+        <input type="submit" name="submit" value="register">
+        <input type="reset" value="clear">                                    
     </form>                               
 </body>
 </html>

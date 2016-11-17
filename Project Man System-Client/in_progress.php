@@ -5,7 +5,7 @@ $id   = htmlentities($user['id']); // storing the user's username after clearnin
 
 
 
-$all = $client_project->view_inprogress();
+$list_inprogress = $client_project->view_inprogress();
 
 if(isset($_POST['submit']))
 {
@@ -25,7 +25,8 @@ header("Location: " . $_SERVER['REQUEST_URI']);
 <head>
     <title>Client Project</title>
     <a href="logout.php">logout</a>
-      <?php include 'includes/goback.php'; ?>
+      <!--?php include 'includes/goback.php'; ?-->
+      <a href="index.php">Go Back</a>
     </header>
 </head>
 <body>
@@ -41,7 +42,7 @@ header("Location: " . $_SERVER['REQUEST_URI']);
                                 </tr>
 
                                  <?php
-                                foreach ( $all as $row ) {?>
+                                foreach ( $list_inprogress as $row ) {?>
   
                                   <tr>
                                   <th><?php echo $row['site_name'] ?></a></th>
