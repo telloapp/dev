@@ -75,7 +75,7 @@ class chartforum{
 
 	public function list_comments($m_id)
 	{
-            $query = $this->db->prepare("SELECT T1.reply,T2.username,T1.likes,T1.id,T1.m_id FROM comments T1 INNER JOIN designer T2 ON T1.designer_id = T2.id WHERE T1.m_id = ? ORDER BY T1.likes DESC");
+            $query = $this->db->prepare("SELECT T1.reply,T2.username,T1.likes,T1.id,T1.m_id,T1.designer_id FROM comments T1 INNER JOIN designer T2 ON T1.designer_id = T2.id WHERE T1.m_id = ? ORDER BY T1.likes DESC");
 
             $query->bindValue(1, $m_id);
 
