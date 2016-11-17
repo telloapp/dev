@@ -1,6 +1,6 @@
 <?php
 
-class billing{
+class Billing{
 
 	private $db;
 	public function __construct($database){
@@ -75,7 +75,7 @@ public function get_site_name($user_id){
 	public function site_completed($user_id){
 		global $db;
 
-	$query=$this->db->prepare("SELECT T1.site_name,T1.user_id,T1.id FROM site_data T1 INNER JOIN users T2 ON T1.user_id = T2.id WHERE status = 'complete' AND user_id =? ");
+	$query=$this->db->prepare("SELECT T1.site_name,T1.user_id,T1.id FROM site_data T1 INNER JOIN designer T2 ON T1.user_id = T2.id WHERE status = 'complete' AND user_id =? ");
 		 $query->bindValue(1, $user_id);
 
         try{
@@ -102,9 +102,6 @@ public function get_site_name($user_id){
 		catch(PDOException $e){
 			die($e->getMessage()); 
 		}
-
-
-
 	}
 
 	public function view_payment_completeBalnce($id){
@@ -144,7 +141,7 @@ public function get_site_name($user_id){
 	public function site_cancelled($user_id){
 		global $db;
 
-	$query=$this->db->prepare("SELECT T1.site_name,T1.user_id,T1.id FROM site_data T1 INNER JOIN users T2 ON T1.user_id = T2.id WHERE status = 'cancelled' AND T1.user_id =? ");
+	$query=$this->db->prepare("SELECT T1.site_name,T1.user_id,T1.id FROM site_data T1 INNER JOIN designer T2 ON T1.user_id = T2.id WHERE status = 'cancelled' AND T1.user_id =? ");
 		 $query->bindValue(1, $user_id);
 
         try{
@@ -220,10 +217,9 @@ public function get_site_name($user_id){
 		catch(PDOException $e){
 			die($e->getMessage()); 
 		}
-
-
-
 	}
+
+	
 
 
 }

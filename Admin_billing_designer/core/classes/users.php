@@ -14,7 +14,29 @@ public function register($username, $password, $email){
 		
 		$password   = $bcrypt->genHash($password);
 
-		$query 	= $this->db->prepare("INSERT INTO `users` (`username`, `password`, `email`) VALUES (?, ?, ?) ");
+		$query 	= $this->db->prepare("INSERT INTO `admin` (`username`, `password`, `email`) VALUES (?, ?, ?) ");
+
+		$query->bindValue(1, $username);
+		$query->bindValue(2, $password);
+		$query->bindValue(3, $email);
+		
+	
+
+		try{
+			$query->execute();
+
+		}catch(PDOException $e){
+			die($e->getMessage());
+		}	
+	}
+
+	public function admin_register($username, $password, $email){
+
+		global $bcrypt; // making the $bcrypt variable global so we can use here
+		
+		$password   = $bcrypt->genHash($password);
+
+		$query 	= $this->db->prepare("INSERT INTO `admin` (`username`, `password`, `email`) VALUES (?, ?, ?) ");
 
 		$query->bindValue(1, $username);
 		$query->bindValue(2, $password);
@@ -32,7 +54,7 @@ public function register($username, $password, $email){
 
 	public function user_exists($username) {
 	
-		$query = $this->db->prepare("SELECT COUNT(`id`) FROM `users` WHERE `username`= ?");
+		$query = $this->db->prepare("SELECT COUNT(`id`) FROM `admin` WHERE `username`= ?");
 		$query->bindValue(1, $username);
 	
 		try{
@@ -54,7 +76,7 @@ public function register($username, $password, $email){
 
 	public function email_exists($email) {
 
-		$query = $this->db->prepare("SELECT COUNT(`id`) FROM `users` WHERE `email`= ?");
+		$query = $this->db->prepare("SELECT COUNT(`id`) FROM `admin` WHERE `email`= ?");
 		$query->bindValue(1, $email);
 	
 		try{
@@ -75,7 +97,7 @@ public function register($username, $password, $email){
 	}
 	public function userdata($id) {
 
-		$query = $this->db->prepare("SELECT * FROM `users` WHERE `id`= ?");
+		$query = $this->db->prepare("SELECT * FROM `admin` WHERE `id`= ?");
 		$query->bindValue(1, $id);
 
 		try{
@@ -206,7 +228,7 @@ public function login($username, $password) {
 
 		global $bcrypt;  // Again make get the bcrypt variable, which is defined in init.php, which is included in login.php where this function is called
 
-		$query = $this->db->prepare("SELECT `password`, `id` FROM `users` WHERE `username` = ?");
+		$query = $this->db->prepare("SELECT `password`, `id` FROM `admin` WHERE `username` = ?");
 		$query->bindValue(1, $username);
 
 		try{

@@ -32,7 +32,7 @@ if (empty($_POST) === false)
                 else
                 {
                     $_SESSION['id'] =  $login;
-                    header('Location: home.php');
+                    header('Location: admin_homepage.php');
                     exit();
                 }
             }
@@ -74,7 +74,7 @@ if (empty($_POST) === false)
                             <div class="card-main">
                                 <div class="card-header">
                                     <div class="card-inner">
-                                        <h1 class="card-heading">login as user</h1>
+                                        <h1 class="card-heading">login as Admin</h1>
 
                                     </div>
                                 </div>
@@ -109,7 +109,7 @@ if (empty($_POST) === false)
                                             <div class="row">
                                                 <div class="col-md-10 col-md-push-1">
                                                     <input type="submit" name="submit" value="Sign in" .el-loading>
-                                                    <a href="index.php"></a>
+                                                    <a href="admin_homepage.php"></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -148,7 +148,7 @@ if (empty($_POST) === false)
                         </div>
                         <div class="clearfix">
                             <p class="margin-no-top pull-left"><a class="btn btn-flat btn-brand waves-attach" href="javascript:void(0)">Forget Password?</a></p>
-                            <p class="margin-no-top pull-right"><a class="btn btn-flat btn-brand waves-attach" href="register.php">Create an account</a></p>
+                            <p class="margin-no-top pull-right"><a class="btn btn-flat btn-brand waves-attach" href="admin_register.php">Create an account</a></p>
                             
                         </div>
                     </section>

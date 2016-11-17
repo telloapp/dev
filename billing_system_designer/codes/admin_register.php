@@ -37,13 +37,13 @@ if (isset($_POST['submit'])) {
 		$email 		= htmlentities($_POST['email']);
 		
 		
-		$users->register($username, $password, $email);
+		$users->admin_register($username, $password, $email);
 		$login = $users->login($username, $password);
 		if ($login === false) {
 			$errors[] = 'Sorry, that username or password is invalid';
 		}else {
 			$_SESSION['id'] =  $login;
-			header('Location: home.php');
+			header('Location: admin_homepage.php');
 			exit();
 		}
 		exit();
@@ -124,7 +124,7 @@ if (isset($_POST['submit'])) {
                                             <div class="row">
                                                 <div class="col-md-10 col-md-push-1">
                                                     <input type="submit" name="submit" value="Submit">
-                                                    <a href="home.php"></a>
+                                                    <a href="admin_homepage.php"></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -135,7 +135,7 @@ if (isset($_POST['submit'])) {
                         </div>
                         <div class="clearfix">
                             <p class="margin-no-top pull-left"><a class="btn btn-flat btn-brand waves-attach" href="javascript:void(0)">Already have an account?</a></p>
-                            <p class="margin-no-top pull-right"><a href="smeLogin.php">Login Here...</a></p>
+                            <p class="margin-no-top pull-right"><a href="adminlogin.php">Login Here...</a></p>
 
                             
                         </div>

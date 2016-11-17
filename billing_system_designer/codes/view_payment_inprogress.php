@@ -9,10 +9,8 @@ $id = $_GET['id'];
 $view_payment = $billing->view_payment_inprogress($id,$user_id); 
 
 ?>
-
 <!doctype html>
 <html>
-
 <head>
 
 <div align="center">
@@ -35,9 +33,7 @@ $view_payment = $billing->view_payment_inprogress($id,$user_id);
     <th>Date</th>
 
      				<?php foreach ($view_payment as $row) { ?>
-                    <div>
-                    
-					
+                    <div>                   					
                         <tr>
                         <td><p><?php echo $row['payment_type']; ?></p></td>
                         <td><p><?php echo $row['payment_method']; ?></p></td>

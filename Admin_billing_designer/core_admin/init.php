@@ -12,8 +12,8 @@ require 'classes/admin_billing.php';
 // error_reporting(0);
 
 $users 		= new Users($db);
-$billing 	= new billing($db);
-$admin_billing 	= new admin_billing($db);
+$billing 	= new Billing($db);
+$admin_billing 	= new Admin_billing($db);
 $general 	= new General();
 $bcrypt 	= new Bcrypt(12);
 

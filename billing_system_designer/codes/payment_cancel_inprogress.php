@@ -19,7 +19,7 @@ $view_payment = $billing->cancel_site_inprogress($user_id);
   
  </div>
 <form>
-<button formaction="work_cancelled.php">Go Back</button> <br><br><br><br>
+<button formaction="cancelled_inprogress10.php">Go Back</button> <br><br><br><br>
 </form>
 </head>
 
