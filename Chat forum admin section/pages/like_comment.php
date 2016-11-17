@@ -8,11 +8,12 @@ $designer_id 	= htmlentities($user['id']); // storing the user's username after 
 
 $id = $_GET['id']; // gets the Id of the (reply or comment)
 $m_id = $_GET['m_id'];
+$message = $_GET['message'];
 $display_comments = $chartforum->list_comments($m_id); // function to display all comments related to the message
 $like_comment = $chartforum->insert_likes($id);
 
 //header('location: list_messages.php');
-header('location: comments.php?m_id='.$m_id);
+header('location: comments.php?m_id='.$m_id .'&message='.$message);
 
 
 ?>

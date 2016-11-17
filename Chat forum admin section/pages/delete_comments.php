@@ -10,9 +10,10 @@ $user_id 	= htmlentities($user['id']);
 $m_id =$_GET['m_id'];
 
 $id = $_GET['id'];
+$message = $_GET['message'];
 
 $deletecomments = $admin->delete_comment($id);  // delete a comment
 
-header('Location:comments.php?m_id='.$m_id);
+header('Location:comments.php?m_id='.$m_id.'&message='.$message);
 
 ?>
