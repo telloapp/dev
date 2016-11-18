@@ -9,12 +9,12 @@ class client_project{
 	}
 
 
-	public function view_completedsite($id){
+	public function view_completedsite($user_id){
 		global $db;
 
-		$query	= $this->db->prepare("SELECT * FROM `site_data` where (statustwo = 'Done' AND statusthree = 'Not Cancelled') ");
+		$query	= $this->db->prepare("SELECT * FROM `site_data` where (statustwo = 'Done' AND statusthree = 'Not Cancelled') AND user_id=?");
 
-		$query->bindValue(1,$id);
+		$query->bindValue(1,$user_id);
 
 		try {
 			$query->execute();
