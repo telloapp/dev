@@ -33,6 +33,9 @@
                     <li>
                       <a align="center" class="waves-attach" href="login.php">Login</a>
                     </li>
+                    <li>
+                      <a align="center" class="waves-attach" href="adminlogin.php">Admin Login</a>
+                    </li>
 
                     <li>
                       <a align="center" class="waves-attach" href="">Contact Us</a>

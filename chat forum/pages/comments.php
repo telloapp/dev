@@ -1,9 +1,10 @@
 <?php
+error_reporting(E_ALL);
 require '../core/init.php';
 $general->logged_out_protect();
 
 $m_id = $_GET['m_id'];
-//$id   = $_GET['id'];
+$message = $_GET['message'];
 $designer_id   = htmlentities($user['id']); // getting the logged in designer id
 
 $display_comments = $chartforum->list_comments($m_id); // function to display all comments related to the message
@@ -33,10 +34,8 @@ $chartforum->delete_notifications($m_id,$designer_id); // funtion to update stat
 	<body>
 		<form method="post" action="">
 
-		<?php foreach ($display_comments as $row) { ?>
-<<<<<<< HEAD
-			<?php echo $row['username']?>&nbsp; :
-=======
+		<?php echo $message; ?><br><br>
+
 			<?php foreach ($display_comments as $row) { ?>
 		<?php if ($row['designer_id'] != 0) { ?>
 			<?php echo $row['username']?>&nbsp; :
@@ -44,11 +43,10 @@ $chartforum->delete_notifications($m_id,$designer_id); // funtion to update stat
 		<?php } elseif  ($row['designer_id'] == 0) { ?>
 		 <?php echo 'Admin'?>&nbsp; :
 		<?php } ?>
->>>>>>> ad615fd00509f26119eed253aa51ce1385844523
 		     <?php echo $row['reply']?> &nbsp;...
              <?php echo $row['likes']?> likes&nbsp;
 
-             <a href="like_comment.php?id=<?php echo $row['id']?>&m_id=<?php echo $row['m_id']?>">like</a>
+             <a href="like_comment.php?id=<?php echo $row['id']?>&m_id=<?php echo $row['m_id']?>&message=<?php echo $message?>">like</a>
 
 		     <br>
 

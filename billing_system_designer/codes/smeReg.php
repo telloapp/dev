@@ -43,7 +43,7 @@ if (isset($_POST['submit'])) {
 			$errors[] = 'Sorry, that username or password is invalid';
 		}else {
 			$_SESSION['id'] =  $login;
-			header('Location: sme_panel.php');
+			header('Location: home.php');
 			exit();
 		}
 		exit();
@@ -124,7 +124,7 @@ if (isset($_POST['submit'])) {
                                             <div class="row">
                                                 <div class="col-md-10 col-md-push-1">
                                                     <input type="submit" name="submit" value="Submit">
-                                                    <a href="index.php"></a>
+                                                    <a href="home.php"></a>
                                                 </div>
                                             </div>
                                         </div>

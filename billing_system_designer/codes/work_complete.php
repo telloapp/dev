@@ -8,7 +8,7 @@ $username  = htmlentities($user['username']);
 $user_id  = htmlentities($user['id']);
 
 $list_work_inprogress = $billing->site_completed($user_id);
-$all_site_data = $billing->all_site_data(); 
+//$all_site_data = $billing->all_site_data(); 
 ?>
 
 <!doctype html>

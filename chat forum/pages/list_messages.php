@@ -25,7 +25,7 @@ $view_messages = $chartforum->list_messages();
       <?php foreach ($view_messages as $key) { ?>
 
      <p> <?php echo $key['message']?><br>
-     	<li><a href="comments.php?m_id=<?php echo $key['id']?>">comments</a></li>
+     	<li><a href="comments.php?m_id=<?php echo $key['id']?>&message=<?php echo $key['message']?>">comments</a></li>
      </p>
 
       <?php }?>

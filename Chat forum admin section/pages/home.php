@@ -23,8 +23,8 @@ $view_messages = $chartforum->list_messages();
       <?php foreach ($view_messages as $key) { ?>
 
      <p> <?php echo $key['message']?><br>
-     	<li><a href="comments.php?m_id=<?php echo $key['id']?>">comments</a></li><br>
-        <li><a href="delete_messages.php?m_id=<?php echo $key['id']; ?>" class="btn btn-default btn-xs" onclick='return confirm("Are you sure you want to delete this Message with its related comments?")'>Delete</a><li>
+     	<li><a href="comments.php?m_id=<?php echo $key['id']?>&message=<?php echo $key['message']?>">comments</a></li><br>
+        <li><a href="delete_messages.php?m_id=<?php echo $key['id'];?>" class="btn btn-default btn-xs" onclick='return confirm("Are you sure you want to delete this Message with its related comments?")'>Delete</a><li>
 
 
      </p>

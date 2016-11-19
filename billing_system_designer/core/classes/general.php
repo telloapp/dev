@@ -7,14 +7,14 @@ class General{
 
 	public function logged_in_protect() {
 		if ($this->logged_in() === true) {
-			header('Location: sme_panel.php');
+			header('Location: home.php');
 			exit();		
 		}
 	}
 	 
 	public function logged_out_protect() {
 		if ($this->logged_in() === false) {
-			header('Location: smeLogin.php');
+			header('Location: login.php');
 			exit();
 		}	
 	}

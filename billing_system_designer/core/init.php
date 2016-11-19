@@ -11,7 +11,7 @@ require 'classes/billing.php';
 // error_reporting(0);
 
 $users 		= new Users($db);
-$billing 	= new billing($db);
+$billing 	= new Billing($db);
 $general 	= new General();
 $bcrypt 	= new Bcrypt(12);
 

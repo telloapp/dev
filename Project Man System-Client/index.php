@@ -18,9 +18,12 @@ $id   = htmlentities($user['id']); // storing the user's username after clearnin
 <h1>Welcome Client Deshboard </h1>
 <p></p>
 <ol>
-    <li><a href="completed_project.php">Completed Site</a></li>
+    <p><a href="completed_project.php">Completed Site</a></p>
     <!--li><a href="addbiz.php">Register My Business</a></li-->
-    <li><a href="in_progress.php">In Progress Site</a></li>
+   <p><a href="in_progress.php">In Progress Site</a></p>
+   <p><a href="list_cancelledsite.php">All Cancelled Site</a></p>
+  <p> <a href="list_approvedsite.php">All Approved Site</a></p>
+  <p> <a href="all_user_revisions.php">All revisions Site</a></p>
 </ol>
 
 
