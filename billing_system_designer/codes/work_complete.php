@@ -13,6 +13,7 @@ $list_work_inprogress = $billing->site_completed($user_id);
 
 <!doctype html>
 <html>
+<title>completed sites</title>
 
 <head>
   <div align="center">
