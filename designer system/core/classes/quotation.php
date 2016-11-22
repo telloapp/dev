@@ -248,7 +248,61 @@ public function delete_rejected_quote($id) {
 			die($e->getMessage());
 		}
 
-	}		
+	}
+
+	/*================Site data for quotation=================*/
+
+		public function list_infor_quote($id)
+{
+
+$query = $this->db->prepare("SELECT * FROM designer_quote t1 INNER JOIN site_data t2 ON t1.site_id = t2.id  WHERE t1.id=?");
+
+  
+  $query->bindValue(1,$id);
+
+   try{
+			$query->execute();	
+			return $query->fetchAll();
+		}
+		catch(PDOException $e){
+			die($e->getMessage()); 
+		}
+}
+	
+
+/*============================Admin Section==============*/
+
+public function list_quote_request()
+	{
+     
+     $query = $this->db->prepare("SELECT * FROM site_data WHERE status = 'send'");
+
+        try{
+			$query->execute();
+			return $query->fetchAll();
+		}
+		catch(PDOException $e){
+			die($e->getMessage()); 
+		}
+
+	}
+
+/*====================List updated quote===================*/
+
+public function list_updated_quote_request()
+	{
+     
+     $query = $this->db->prepare("SELECT * FROM site_data WHERE status = 'send'");
+
+        try{
+			$query->execute();
+			return $query->fetchAll();
+		}
+		catch(PDOException $e){
+			die($e->getMessage()); 
+		}
+
+	}
 
 }
 ?>

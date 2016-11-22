@@ -33,7 +33,7 @@ $list = $quotation-> list_allupdated_quote_request();
    
  <br>
    <a href="view_updated_quote.php?id=<?php echo $key['id']; ?>">View Details</a>
-   <a href="create_quote.php?id=<?php echo $key['id']; ?>">Create Quote</a>
+   
    
 
   <?php }?>

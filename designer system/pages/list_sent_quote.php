@@ -38,7 +38,7 @@ $list = $quotation-> list_all_sentquote($designer_id);
    <a href="preview_sent_quote.php?id=<?php echo $key['id']; ?>">View Details</a>
 <a href="delete_save_quote.php?id=<?php echo $key['id']; ?>"onclick='return confirm("Are you sure you want to delete this?")'>DELETE</a>
 
-    
+  <hr>  
   <?php }?>
   <br><br>
 

@@ -70,5 +70,6 @@ Instagram : <?php echo $row['instagram'];?>
 
 <hr>
 <a href="list_all_request.php">Goback</a>
+<a href="create_quote.php?id=<?php echo $row['id']; ?>">Create Quote</a>
 </body>
 </html>

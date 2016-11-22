@@ -1,11 +1,12 @@
 <?php
 require '../core/init.php';
-$general->logged_out_protect();
+//$general->logged_out_protect();
 
 $id = $_GET['id'];
 
-$view_quote = $quotation->view_quote_request($id);
-$view_quoteobj = $quotation->list_RequestFeatures($id);
+
+$list = $admin->list_updated_quote_request();
+
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +19,7 @@ $view_quoteobj = $quotation->list_RequestFeatures($id);
 <hr>
 
 <form method="post" class=" " role="form" enctype="multipart/form-data">
-<?php foreach ($view_quoteobj as $row){?>
+<?php foreach ($list as $row){?>
 
 Website Type : <?php echo $row['website_type']; ?>
 <br><br>
@@ -62,14 +63,9 @@ Instagram : <?php echo $row['instagram'];?>
 <br><br>
 <hr>
 <h4>Website Pages(Features)</h4>
-<?php foreach($view_quote as $row) { ?>
-<?php echo $row['pages'];?><br>
-<?php } ?>
 </form>
-
-
 <hr>
- <a href="create_quote.php?id=<?php echo $row['id']; ?>">Create Quote</a>
-<a href="list_all_request.php">Goback</a>
+
+<a href="admin_list_request.php">Goback</a>
 </body>
 </html>

@@ -7,6 +7,7 @@ require 'classes/bcrypt.php';
 require 'classes/chartforum.php';
 require 'classes/designer.php';
 require 'classes/quotation.php';
+require 'classes/admin.php';
 
 // error_reporting(0);
 
@@ -14,6 +15,7 @@ $users 		  	= new Users($db);
 $chartforum 	= new Chartforum($db);
 $designer    	= new designer($db);
 $quotation    	= new quotation($db);
+$admin   	    = new admin($db);
 $general 		= new General();
 $bcrypt 		= new Bcrypt(12);
 

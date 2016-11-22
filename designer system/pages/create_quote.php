@@ -41,7 +41,7 @@ $advanced_m_period          = htmlentities($_POST['advanced_m_period']);
 
 
 $createquote = $quotation->create_quote($designer_id, $site_id, $quote_price, $finish_date, $own_maintenance, $basic_m_amt,$advanced_m_amt, $basic_m_period,$advanced_m_period, $status, $quote_accepted);
-header("location:preview_quote.php");
+header("location:saved_code_reports.php");
   }
 
 

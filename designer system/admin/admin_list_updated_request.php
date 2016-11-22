@@ -3,7 +3,7 @@ require '../core/init.php';
 
 //$user_id  = htmlentities($user['id']);
 
-$list = $quotation-> list_allquote_request();
+$list = $admin->list_all_updated_quote();
 
 ?>
 <!DOCTYPE html>
@@ -12,8 +12,8 @@ $list = $quotation-> list_allquote_request();
 	<title></title>
 </head>
 <body>
-<h3>All Quote Request Information</h3>
-<a href = "index.php">Back</a>
+<h3>All Updated Quote Request Information From Client</h3>
+<a href = "admin_index.php">Back</a>
 <hr>
   <?php foreach ($list as $key ) { ?>
 
@@ -32,8 +32,7 @@ $list = $quotation-> list_allquote_request();
      </div>
    
  <br>
-   <a href="view_quote_request.php?id=<?php echo $key['id']; ?>">View Details</a>
-  
+ <a href="view_updated_quote_request.php?id=<?php echo $key['id']; ?>">View Details</a>
    
 
   <?php }?>

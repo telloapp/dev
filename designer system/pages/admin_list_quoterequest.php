@@ -1,9 +1,9 @@
 <?php
-require '../core/init.php';
+require '../../core/init.php';
 
 //$user_id  = htmlentities($user['id']);
 
-$list = $quotation-> list_allquote_request();
+$list = $admin->list_quote_request();
 
 ?>
 <!DOCTYPE html>
@@ -13,7 +13,7 @@ $list = $quotation-> list_allquote_request();
 </head>
 <body>
 <h3>All Quote Request Information</h3>
-<a href = "index.php">Back</a>
+
 <hr>
   <?php foreach ($list as $key ) { ?>
 
@@ -32,8 +32,7 @@ $list = $quotation-> list_allquote_request();
      </div>
    
  <br>
-   <a href="view_quote_request.php?id=<?php echo $key['id']; ?>">View Details</a>
-  
+
    
 
   <?php }?>
