@@ -3,8 +3,8 @@ require '../core/init.php';
 $general->logged_out_protect();
 //$id ='1';
 
-$username  = htmlentities($user['username']);
-$user_id  = htmlentities($user['id']);
+$username  = htmlentities($designer['username']);
+$user_id  = htmlentities($designer['id']);
 
 //$id = $_GET['id'];
 $list_work_inprogress = $billing->get_site_name($user_id);

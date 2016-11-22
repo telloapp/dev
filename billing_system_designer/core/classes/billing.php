@@ -11,7 +11,7 @@ class Billing{
 public function get_site_name($user_id){
 		global $db;
 
-	$query=$this->db->prepare("SELECT * FROM site_data T1 INNER JOIN client_payment T2 ON T1.id=T2.id WHERE status = 'inprogress' AND T1.user_id =?");
+	$query=$this->db->prepare("SELECT * FROM site_data T1 INNER JOIN client_payment T2 ON T1.id=T2.site_id WHERE status = 'inprogress' AND T1.user_id =?");
 		 $query->bindValue(1, $user_id);
 
         try{
@@ -43,7 +43,7 @@ public function get_site_name($user_id){
 
 	}
 
-	public function viewBiz()
+	/*public function viewBiz()
 	{
 		$query = $this->db->prepare("SELECT * FROM biz_profile");
 
@@ -55,7 +55,7 @@ public function get_site_name($user_id){
 			die($e->getMessage()); 
 		}
 
-	}
+	}*/
 
 	public function all_site_data()
 	{

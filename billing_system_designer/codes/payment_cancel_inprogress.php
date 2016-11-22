@@ -2,8 +2,8 @@
 require '../core/init.php';
 $general->logged_out_protect();
 
-$username  = htmlentities($user['username']);
-$user_id  = htmlentities($user['id']);
+$username  = htmlentities($designer['username']);
+$user_id  = htmlentities($designer['id']);
 
 //$id = $_GET['id'];
 $view_payment = $billing->cancel_site_inprogress($user_id); 

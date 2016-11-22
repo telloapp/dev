@@ -11,7 +11,7 @@ if (isset($_POST['submit'])) {
 	}else
 	{
 	      	      
-        if ($users->user_exists($_POST['username']) === true) 
+        if ($designer_billing->user_exists($_POST['username']) === true) 
         {
             $errors[] = 'That username already exists';
         }
@@ -24,7 +24,7 @@ if (isset($_POST['submit'])) {
         }
         if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) === false) {
             $errors[] = 'Please enter a valid email address';
-        }else if ($users->email_exists($_POST['email']) === true) {
+        }else if ($designer_billing->email_exists($_POST['email']) === true) {
             $errors[] = 'That email already exists.';
         }
 	}
@@ -37,8 +37,8 @@ if (isset($_POST['submit'])) {
 		$email 		= htmlentities($_POST['email']);
 		
 		
-		$users->register($username, $password, $email);
-		$login = $users->login($username, $password);
+		$designer_billing->register($username, $password, $email);
+		$login = $designer_billing->login($username, $password);
 		if ($login === false) {
 			$errors[] = 'Sorry, that username or password is invalid';
 		}else {

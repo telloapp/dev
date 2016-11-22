@@ -3,12 +3,12 @@ require '../core/init.php';
 $general->logged_out_protect();
 
 
-$username  = htmlentities($user['username']);
-$user_id  = htmlentities($user['id']); // storing the user's username after clearning for any html tags.
+$username  = htmlentities($designer['username']);
+$user_id  = htmlentities($designer['id']); // storing the user's username after clearning for any html tags.
 
 
-$dispObj = $users->dispBiz($user_id);
-$dispObj2 = $users->dispBiz2($user_id);
+//$dispObj = $users->dispBiz($user_id);
+//$dispObj2 = $users->dispBiz2($user_id);
 
 ?>
 

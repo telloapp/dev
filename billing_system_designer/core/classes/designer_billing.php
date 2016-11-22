@@ -1,6 +1,6 @@
 <?php
 
-class Users{
+class Designer_billing{
 
 private $db;
 
