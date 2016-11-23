@@ -1,5 +1,5 @@
 <?php
-require '../core/init.php';
+require '../designers/init.php';
 
 //$user_id  = htmlentities($user['id']);
 

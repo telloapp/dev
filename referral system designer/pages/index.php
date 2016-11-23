@@ -7,8 +7,14 @@
 	</head>
 	<body class="homepage">
 <ul>
-<li><a href="clientSignin.php">Login</a></li>
-<li><a href="clientRegister.php">Register</a></li>
+<h4>Clients</h4>
+<li><a href="clientSignin.php">Client Login</a></li>
+<li><a href="clientRegister.php">Client Register</a></li>
+<br>
+<h4>Designers</h4>
+<li><a href="login.php">designer Login</a></li>
+<li><a href="register.php">designer register</a></li>
+
 </ul>
 		
 

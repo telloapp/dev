@@ -1,6 +1,6 @@
 <?php
 error_reporting(E_ALL);
-require '../core/init.php';
+require '../designers/init.php';
 ?>
 <!DOCTYPE html>
 <html>

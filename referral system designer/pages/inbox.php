@@ -14,7 +14,7 @@ $dd = date('Y-m-d');
 
 $client->addStatus($dd,$site_id);
 
-header('location:client_panel.php');
+header('location:Payment_type_page.php');
 
 }
 
@@ -37,7 +37,7 @@ header('location:client_panel.php');
 <a href="outbox.php">Back</a>
 <br>
 <br>
-<form action="" method="post">
+<form action="" method="post" onsubmit="alert('Quote accepted. process with payments.');">
 <?php foreach ($designerQuote as $key) {?>
 
 Designer name :&nbsp;<?php echo $key['username'];?><br>

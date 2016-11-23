@@ -724,7 +724,7 @@ public function all_uploaded_files(){
 
 		if ($query) {
 			$Qs = 'no';
-			$query=$this->prepare("UPDATE designer_quote SET quote_accepted = ? WHERE `site_id` != ? AND quote_accepted != 'yes' ");
+			$query=$this->db->prepare("UPDATE designer_quote SET quote_accepted = ? WHERE `site_id` != ? AND quote_accepted != 'yes' ");
 			$query->bindValue(1,$Qs);
 			$query->bindValue(2,$site_id);
 

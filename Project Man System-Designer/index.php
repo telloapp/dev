@@ -19,7 +19,7 @@ $user_id  = htmlentities($user['id']); // storing the user's username after clea
  <td> <a href="new_projects.php" class="btn btn-danger btn-sm">New Projects</a>
 <a href="inprogress_project.php" class="btn btn-danger btn-sm">Inprogress</a>
 
-<a href="completed_project.php" class="btn btn-danger btn-sm">Complete</a>
+<a href="completed_project1.php" class="btn btn-danger btn-sm">Complete</a>
 <a href="cancelled_project.php" class="btn btn-danger btn-sm">Cancelled</a>
 <a href="approved_project.php" class="btn btn-danger btn-sm">Approved</a>
 <a href="client_complaint.php" class="btn btn-danger btn-sm">Clients Complains</a>

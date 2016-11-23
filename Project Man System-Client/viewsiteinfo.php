@@ -1,5 +1,5 @@
 <?php
-require 'core/init.php';
+require '../core/init.php';
 
 //$id   = htmlentities($user['id']); // storing the user's username after clearning for any html tags.
 

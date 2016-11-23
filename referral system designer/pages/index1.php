@@ -1,5 +1,8 @@
 <?php
+$thispage = 'index1';
+error_reporting(E_ALL);
 require '../core/init.php';
+
 $general->logged_out_protect();
 
 ?>
@@ -12,7 +15,7 @@ $general->logged_out_protect();
 <body>
 
 <div id="body">
- <form action="upload.php" method="post" >
+ <form action="upload.php" method="post" enctype="multipart/form-data">
  <input type="file" name="file" />
  <button type="submit" name="btn-upload">upload</button>
  </form>

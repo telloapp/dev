@@ -1,7 +1,7 @@
 <?php
 $thispage = 'view';
 error_reporting(E_ALL);
-require './core/init.php';
+require '../core/init.php';
 $u_id = $_GET['u_id'];
 $general->logged_out_protect();
 $user_id  = htmlentities($user['id']);
