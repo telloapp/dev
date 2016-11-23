@@ -1,12 +1,12 @@
 <?php
-require '../desingers/init.php';
+require '../designers/init.php';
 $general->logged_out_protect();
 
 $username  = htmlentities($user['username']);
 $user_id  = htmlentities($user['id']);
 
 $id = $_GET['id'];
-$view_payment = $billing->view_payment_inprogress($id,$user_id); 
+$view_payment = $designer->view_payment_inprogress($id); 
 
 ?>
 <!doctype html>

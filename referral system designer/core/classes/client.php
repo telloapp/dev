@@ -569,8 +569,8 @@ if(isset($_FILES['files'])){
 
 	public function viewInbox($site_id)
 	{
-		$query=$this->db->prepare("SELECT t1.designer_id, t1.quote_price,t1.finish_date,t1.quote_num,t1.basic_m_amt,t1.advanced_m_amt,t1.basic_m_period,t1.advanced_m_period, t2.id,t2.email,t2.contacts, t2.username, t3.id FROM designer t2 INNER JOIN designer_quote t1 ON t1.designer_id=t2.id INNER JOIN site_data t3 ON t3.id = t1.site_id
-		 WHERE `site_id` = ?");
+		$query=$this->db->prepare("SELECT t1.designer_id, t1.quote_accepted, t1.quote_price,t1.finish_date,t1.quote_num,t1.basic_m_amt,t1.advanced_m_amt,t1.basic_m_period,t1.advanced_m_period, t2.id,t2.email,t2.contacts, t2.username, t3.id FROM designer t2 INNER JOIN designer_quote t1 ON t1.designer_id=t2.id INNER JOIN site_data t3 ON t3.id = t1.site_id
+		 WHERE `site_id` = ? AND t1.quote_accepted = 'No'");
 		$query->bindValue(1,$site_id);
 
 
@@ -756,6 +756,29 @@ public function all_uploaded_files(){
 		}
 
 	}
+
+	/*update date accepted the quotation in designer quote table*/
+	public function updateDDAccepted($site_id,$dd,$code_Status, $q_id)
+	{
+		
+		$query=$this->db->prepare("UPDATE designer_quote SET date_accepted = ?, quote_accepted = ? WHERE site_id = ?");
+
+		$query->bindValue(1,$dd);
+		$query->bindValue(2,$code_Status);
+		$query->bindValue(3,$site_id);		
+		
+		try {
+			$query->execute();
+
+		} catch (PDOException $e) {
+			die($e->getMessage());
+		}
+		header('location:Payment_type_page.php?site_id='.$site_id);
+}
+	
+
+
+	/**/
 
 	/*public function dltQoute($quoteId)
 	{

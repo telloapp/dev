@@ -4,10 +4,10 @@ require '../designers/init.php';
 $general->logged_out_protect();
 //$id ='1';
 //$id = $_GET['id'];
-$username  = htmlentities($designer['username']);
-$user_id  = htmlentities($designer['id']);
+$username  = htmlentities($user['username']);
+$user_id  = htmlentities($user['id']);
 
-$list_work_inprogress = $billing->site_completed($user_id);
+$list_work_inprogress = $designer->site_completed();
 //$all_site_data = $billing->all_site_data(); 
 ?>
 

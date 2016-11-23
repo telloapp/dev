@@ -2,11 +2,11 @@
 require '../designers/init.php';
 $general->logged_out_protect();
 
-$username  = htmlentities($designer['username']);
-$user_id  = htmlentities($designer['id']);
+$username  = htmlentities($user['username']);
+$user_id  = htmlentities($user['id']);
 
 //$id = $_GET['id'];
-$list_work_inprogress = $billing->view_penalties($user_id);
+$list_work_inprogress = $designer->view_penalties($user_id);
 //$all_site_data = $billing->all_site_data(); 
 
 ?>

@@ -6,7 +6,7 @@ $username  = htmlentities($user['username']);
 $user_id  = htmlentities($user['id']);
 
 $id = $_GET['id'];
-$view_payment = $billing->see_penalties($id,$user_id); 
+$view_payment = $designer->see_penalties($id,$user_id); 
 
 ?>
 

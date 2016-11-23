@@ -7,12 +7,14 @@ $general->logged_out_protect();
 
 $user_id  = htmlentities($user['id']);
 
+$site_id = $_GET['site_id'];
+
+
 if (isset($_GET['submit'])) {
 
 $payment_type               = htmlentities($_GET['payment_type']);
 $payment_method               = htmlentities($_GET['payment_method']);
 $client_status = 'Pending';
-
 
 $client_payment->client_pay($user_id,$payment_type,$payment_method,$client_status);
 

@@ -7,8 +7,8 @@ $general->logged_out_protect();
 $username  = htmlentities($user['username']);
 $user_id  = htmlentities($user['id']);
 
-$list_work_inprogress = $billing->site_cancelled($user_id);
-$all_site_data = $billing->all_site_data(); 
+$list_work_inprogress = $designer->site_cancelled($user_id);
+$all_site_data = $designer->all_site_data(); 
 
 ?>
 

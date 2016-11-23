@@ -7,8 +7,8 @@ $username  = htmlentities($user['username']);
 $user_id  = htmlentities($user['id']);
 
 $id = $_GET['id'];
-$view_payment = $billing->view_payment_complete($id);
-$v_paymentBal = $billing->view_payment_completeBalnce($id); 
+$view_payment = $designer->view_payment_complete($id);
+$v_paymentBal = $designer->view_payment_completeBalnce($id); 
 
 ?>
 

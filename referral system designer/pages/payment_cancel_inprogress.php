@@ -6,7 +6,7 @@ $username  = htmlentities($user['username']);
 $user_id  = htmlentities($user['id']);
 
 //$id = $_GET['id'];
-$view_payment = $billing->cancel_site_inprogress($user_id); 
+$view_payment = $designer->cancel_site_inprogress($user_id); 
 
 ?>
 

@@ -4,11 +4,11 @@ require '../designers/init.php';
 $general->logged_out_protect();
 //$id ='1';
 //$id = $_GET['id'];
-$username  = htmlentities($designer['username']);
-$user_id = htmlentities($designer['id']);
+$username  = htmlentities($user['username']);
+$user_id = htmlentities($user['id']);
 
-$site_complete = $billing->site_completed($user_id);
-$all_site_data = $billing->all_site_data(); 
+$site_complete = $designer->site_completed($user_id);
+$all_site_data = $designer->all_site_data(); 
 
 ?>
 

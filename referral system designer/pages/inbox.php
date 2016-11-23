@@ -11,10 +11,10 @@ $designerQuote = $client->viewInbox($site_id);
 if (isset($_POST['submit'])) { 
 
 $dd = date('Y-m-d');
+$code_Status = "Yes";
 
 $client->addStatus($dd,$site_id);
-
-header('location:Payment_type_page.php');
+$client->updateDDAccepted($site_id,$dd,$code_Status);
 
 }
 
@@ -46,6 +46,8 @@ Date to finish :&nbsp;<?php echo $key['finish_date'];?>
 <h4>Maintenance</h4>
 Basic Maintenance amount :&nbsp;<?php echo $key['basic_m_amt'];?>&nbsp;Period :&nbsp;<?php echo $key['basic_m_period'];?>&nbsp;days<br>
 advanced Maintenance amount :&nbsp;<?php echo $key['advanced_m_amt'];?>&nbsp;Period :&nbsp;<?php echo $key['advanced_m_period'];?>&nbsp;days<br><br>
+
+<input type="hidden" name="d_q_id" value="<?php echo "$site_id";?>">
 
 <input type="submit" name="submit" value="accept Quotation">
 

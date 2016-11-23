@@ -12,13 +12,14 @@ class client_payment{
 
 {
 	
-$query= $this->db->prepare("INSERT INTO `client_payment`(`user_id`, `payment_type`,`payment_method`,`client_status`) VALUES (?,?,?,?)");
+$query= $this->db->prepare("INSERT INTO `client_payment`(`user_id`, `payment_type`,`payment_method`,`client_status`) VALUES (?,?,?,?,?)");
 
 		
 		$query->bindValue(1,$user_id);
 		$query->bindValue(2,$payment_type);
 		$query->bindValue(3,$payment_method);
 		$query->bindValue(4,$client_status);
+		
 		
 		try {
 			$query->execute();
@@ -35,7 +36,7 @@ $query= $this->db->prepare("INSERT INTO `client_payment`(`user_id`, `payment_typ
 		{
 			header('Location:direct_tello_payment.php?c_id='.$id);
 		}
-		elseif($payment_type == "Direct Payment")
+		elseif($payment_type == "Credit Payment")
 		{
 			header('Location:sage_pay_page.php?c_id='.$id);
 		}

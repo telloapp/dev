@@ -3,12 +3,11 @@ require '../designers/init.php';
 $general->logged_out_protect();
 //$id ='1';
 
-$username  = htmlentities($designer['username']);
-$user_id  = htmlentities($designer['id']);
+$username  = htmlentities($user['username']);
+$user_id  = htmlentities($user['id']);
 
-//$id = $_GET['id'];
-$list_work_inprogress = $billing->get_site_name($user_id);
-$all_site_data = $billing->all_site_data(); 
+$list_work_inprogress = $designer->get_site_name();
+$all_site_data = $designer->all_site_data(); 
 
 ?>
 

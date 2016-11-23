@@ -3,7 +3,6 @@ require '../core/init.php';
 
 $id   = htmlentities($user['id']); // storing the user's username after clearning for any html tags.
 //$id= $_GET ['id'];
-print_r($id);
 
 
 $view_cancelled_site = $client_project->list_cancelled_site($id);
