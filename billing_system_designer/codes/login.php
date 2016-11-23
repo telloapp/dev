@@ -12,7 +12,7 @@ if (empty($_POST) === false)
 		$errors[] = 'Sorry, but we need your username and password.';
 	} 
     else
-        if($users->user_exists($username) === false) 
+        if($designer_billing->user_exists($username) === false) 
         {
             $errors[] = 'Sorry that username doesn\'t exist, please sign up first';
         } 
@@ -23,7 +23,7 @@ if (empty($_POST) === false)
                     $errors[] = 'The password should be less than 18 characters, without spacing.';
                 }
 
-                $login = $users->login($username, $password);
+                $login = $designer_billing->login($username, $password);
 
                 if ($login === false) 
                 {
