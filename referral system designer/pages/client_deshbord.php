@@ -2,13 +2,13 @@
 <head>
   <body>
     <span>
-     <a href="index.php">Home</a>
+     <a href="client_panel.php">Home</a>
    </span>
      <br>
-     <span>
+     <!--<span>
      <a href="view_report.php" class="user-link "><i class="fa fa-user"></i>View Report</a> 
    </span>
-    <br>
+    <br>-->
  <span>
      <a href="client_payment_status.php" class="user-link "><i class="fa fa-user"></i>Payment</a> 
    </span>

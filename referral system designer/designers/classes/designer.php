@@ -91,7 +91,7 @@ class designer
 		   public function get_site_name(){
 		global $db;
 
-	$query=$this->db->prepare("SELECT * FROM site_data WHERE status = 'inprogress'");
+	$query=$this->db->prepare("SELECT * FROM site_data WHERE progress_status = 'inprogress'");
 		
 
         try{
@@ -108,7 +108,7 @@ class designer
 	public function view_payment_inprogress($id){
 		global $db;
 
-	$query=$this->db->prepare("SELECT T1.site_id,T1.id,T1.payment_type, T1.payment_method,T1.amount,T1.date FROM client_payment T1 INNER JOIN site_data T2 ON T1.site_id=T2.id WHERE T1.site_id =?");
+	$query=$this->db->prepare("SELECT T1.site_id,T1.c_id,T1.payment_type, T1.payment_method,T1.amount,T1.date FROM client_payment T1 INNER JOIN site_data T2 ON T1.site_id=T2.id WHERE T1.site_id =?");
 		 $query->bindValue(1, $id);
 		 //$query->bindValue(2, $user_id);
 
@@ -155,7 +155,7 @@ class designer
 	public function site_completed(){
 		global $db;
 
-	$query=$this->db->prepare("SELECT * FROM site_data   WHERE status = 'complete'");
+	$query=$this->db->prepare("SELECT * FROM site_data   WHERE progress_status = 'completed'");
 		 //$query->bindValue(1, $user_id);
 
         try{
@@ -170,11 +170,11 @@ class designer
 
 	}
 
-	public function view_payment_complete($id){ 
+	public function view_payment_complete($site_id){ 
 		global $db;
 
-	$query=$this->db->prepare("SELECT T1.payment_type,T1.payment_method,T1.amount,T1.date FROM client_payment T1 INNER JOIN site_data T2 ON T1.site_id = T2.id WHERE (payment_type = 'Deposit' || payment_type = 'Full Amount') AND T2.id = ?");
-		 $query->bindValue(1, $id);
+	$query=$this->db->prepare("SELECT T1.payment_type,T1.payment_method,T1.amount,T1.date FROM client_payment T1 INNER JOIN site_data T2 ON T1.site_id = T2.id WHERE (payment_type = 'Deposit' || payment_type = 'Full Amount') AND T2.progress_status = 'Completed' AND T1.site_id = ?");
+		 $query->bindValue(1, $site_id);
 
         try{
 			$query->execute();
@@ -185,11 +185,26 @@ class designer
 		}
 	}
 
-	public function view_payment_completeBalnce($id){
+	public function get_all_designers_compltd(){
 		global $db;
 
-	$query=$this->db->prepare("SELECT T1.payment_type,T1.payment_method,T1.amount,T1.date FROM client_payment T1 INNER JOIN site_data T2 ON T1.site_id = T2.id WHERE payment_type = 'Balance'  AND T2.id = ?");
-		 $query->bindValue(1, $id);
+	$query=$this->db->prepare("SELECT DISTINCT T1.username,T1.id FROM designer T1 INNER JOIN site_data T2 ON T1.id=T2.user_id WHERE progress_status = 'completed'");
+		 //$query->bindValue(1, $user_id);
+
+        try{
+			$query->execute();
+			return $query->fetchAll();
+		}
+		catch(PDOException $e){
+			die($e->getMessage()); 
+		}
+	}
+
+	public function view_payment_completeBalnce($site_id){
+		global $db;
+
+	$query=$this->db->prepare("SELECT T1.payment_type,T1.payment_method,T1.amount,T1.date FROM client_payment T1 INNER JOIN site_data T2 ON T1.site_id = T2.id WHERE payment_type = 'Balance'  AND T1.site_id = ?");
+		 $query->bindValue(1, $site_id);
 
         try{
 			$query->execute();
@@ -202,11 +217,12 @@ class designer
 
 	}
 
-	public function view_payment_tello($id){
+	public function view_payment_tello($site_id){
 		global $db;
 
-	$query=$this->db->prepare("SELECT * FROM client_payment WHERE id =?");
-		 $query->bindValue(1, $id);
+	$query=$this->db->prepare("SELECT * FROM client_payment WHERE site_id = ?");
+		 $query->bindValue(1, $site_id);
+		 //$query->bindValue(2, $user_id);
 
         try{
 			$query->execute();
@@ -222,7 +238,7 @@ class designer
 	public function site_cancelled($user_id){
 		global $db;
 
-	$query=$this->db->prepare("SELECT T1.site_name,T1.user_id,T1.id FROM site_data T1 INNER JOIN designer T2 ON T1.user_id = T2.id WHERE status = 'cancelled' AND T1.user_id =? ");
+	$query=$this->db->prepare("SELECT T1.site_name,T1.user_id,T1.id FROM site_data T1 INNER JOIN designer T2 ON T1.user_id = T2.id WHERE progress_status = 'Completed' AND T1.user_id =? ");
 		 $query->bindValue(1, $user_id);
 
         try{
@@ -255,7 +271,7 @@ class designer
 	public function view_penalties($user_id){
 		global $db;
 
-	$query=$this->db->prepare("SELECT * FROM site_data T1 INNER JOIN client_payment T2 ON T1.id=T2.id WHERE status = 'complete' AND T1.user_id =?");
+	$query=$this->db->prepare("SELECT * FROM site_data T1 INNER JOIN client_payment T2 ON T1.id=T2.c_id WHERE progress_status = 'complete' AND T1.user_id =?");
 		 $query->bindValue(1, $user_id);
 
         try{
@@ -284,12 +300,12 @@ class designer
 	}
 
 
-	public function cancel_site_inprogress($user_id){ 
-		global $db;
+	public function cancel_site_inprogress(){ 
+		//global $db;
 
-	$query=$this->db->prepare("SELECT T1.site_id,T1.payment_method,T1.amount,T1.date FROM client_payment T1 INNER JOIN site_data T2 ON T1.site_id=T2.id WHERE status = 'cancel_inprogress' AND T2.user_id =? ");
+	$query=$this->db->prepare("SELECT DISTINCT T1.site_id,T1.payment_method,T1.amount,T1.date,T2.site_name FROM client_payment T1 INNER JOIN site_data T2 ON T1.site_id=T2.id WHERE progress_status = 'Inprogress' AND cancel_status = 'cancelled'");
 		 //$query->bindValue(1, $id);
-		 $query->bindValue(1, $user_id);
+		// $query->bindValue(1, $user_id);
 
         try{
 			$query->execute();
@@ -299,6 +315,23 @@ class designer
 			die($e->getMessage()); 
 		}
 	}
+
+	public function cancel_site_completed(){ 
+		//global $db;
+
+	$query=$this->db->prepare("SELECT DISTINCT T1.site_id,T1.payment_method,T1.amount,T1.date,T2.site_name FROM client_payment T1 INNER JOIN site_data T2 ON T1.site_id=T2.id WHERE progress_status = 'completed' AND cancel_status = 'cancelled'");
+		 //$query->bindValue(1, $id);
+		// $query->bindValue(1, $user_id);
+
+        try{
+			$query->execute();
+			return $query->fetchAll();
+		}
+		catch(PDOException $e){
+			die($e->getMessage()); 
+		}
+	}
+
 }
 
 ?>

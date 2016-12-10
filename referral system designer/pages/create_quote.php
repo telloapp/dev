@@ -6,7 +6,7 @@ $designer_id  = htmlentities($user['id']);
 $site_id = $_GET['id'];
 
 if (isset($_POST['submit'])) {
- $status = "send";
+ $status = "sent";
  $quote_accepted   ="No";
 
 $quote_price                = htmlentities($_POST['quote_price']);

@@ -46,7 +46,7 @@ $list_work_inprogress = $designer->site_completed();
                     <td><?php echo $row['site_name']; ?></td>
 
                     <form>                   
-                      <td><a href="view_payment_complete.php?id=<?php echo $row['id']; ?>">View Payment From Client</a></td>                     
+                      <td><a href="view_payment_complete.php?site_id=<?php echo $row['id']; ?>">View Payment From Client</a></td>                     
                     </form>
 
                     </dev>

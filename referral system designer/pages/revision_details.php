@@ -5,7 +5,7 @@ $general->logged_out_protect();
 
 //$id   = htmlentities($user['id']); // storing the user's id after clearning for any html tags.
  $id = $_GET['id'];
-$details_of_revisions = $client_project->view_revision_details($id)
+$details_of_revisions = $client_project->view_revision_details($id);
 
 //$num_rows="";
 ?>

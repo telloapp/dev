@@ -7,7 +7,7 @@ $user_id  = htmlentities($user['id']); // storing the user's username after clea
 
 
 
-$id = $_GET['rid'];
+$id = $_GET['id'];
 
 $revision_projects_details = $projects->revision_projects_details($id);
 

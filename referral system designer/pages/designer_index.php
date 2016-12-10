@@ -28,7 +28,7 @@ $view_comments = $chartforum->get_msg_id($designer_id);
 <hr>
 <a href="work_inprogress.php">In Progress</a><br><br>
 <a href="work_complete.php">Complete</a><br><br>
-<a href="cancelled_inprogress10.php">Cancelled</a><br><br>
+<a href="cancelled_inprogress.php">Cancelled</a><br><br>
 <a href="site_completed_tello.php">Payment From Tello</a><br><br>
 <a href="work_penalties.php">Penalties</a><br><br>
 <hr>

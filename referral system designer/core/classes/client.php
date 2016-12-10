@@ -226,12 +226,12 @@ if(isset($_FILES['files'])){
 }
 	}
 
-	public function insert_siteData($user_id,$site_type,$status,$origin,$site_name,$due_date,$no_of_pages,$facebook,$twitter,$instagram)
+	public function insert_siteData($user_id,$site_type,$request_report,$origin,$site_name,$due_date,$no_of_pages,$facebook,$twitter,$instagram)
 	{
-		$query = $this->db->prepare("INSERT INTO `site_data`(`user_id`,`website_type`,`status`,`origin`,`site_name`,`due_date`,`no_of_pages`,`facebook`,`twitter`,`instagram`) VALUES(?,?,?,?,?,?,?,?,?,?)");
+		$query = $this->db->prepare("INSERT INTO `site_data`(`user_id`,`website_type`,`request_report`,`origin`,`site_name`,`due_date`,`no_of_pages`,`facebook`,`twitter`,`instagram`) VALUES(?,?,?,?,?,?,?,?,?,?)");
 		$query->bindValue(1,$user_id);
 		$query->bindValue(2,$site_type);
-		$query->bindValue(3,$status);
+		$query->bindValue(3,$request_report);
 		$query->bindValue(4,$origin);
 		$query->bindValue(5,$site_name);
 		$query->bindValue(6,$due_date);
@@ -268,7 +268,7 @@ if(isset($_FILES['files'])){
 	
 	public function viewSend($id)
 	{
-		$query = $this->db->prepare("SELECT * FROM `site_data` WHERE `status` = 'sent' AND user_id=?");
+		$query = $this->db->prepare("SELECT * FROM `site_data` WHERE `request_report` = 'sent' AND user_id=?");
 		$query->bindValue(1,$id);
 
 			try{
@@ -286,7 +286,7 @@ if(isset($_FILES['files'])){
 
 		public function viewDrafts($id)
 	{
-		$query = $this->db->prepare("SELECT * FROM `site_data` WHERE `status` = 'draft' AND user_id=?");
+		$query = $this->db->prepare("SELECT * FROM `site_data` WHERE `request_report` = 'draft' AND user_id=?");
 		$query->bindValue(1,$id);
 
 			try{
@@ -304,7 +304,7 @@ if(isset($_FILES['files'])){
 
 	public function viewSelectedDraft($id)
 	{
-		$query = $this->db->prepare("SELECT * FROM `site_data` WHERE `status` = 'draft' AND id=?");
+		$query = $this->db->prepare("SELECT * FROM `site_data` WHERE `request_report` = 'draft' AND id=?");
 		$query->bindValue(1,$id);
 
 			try{
@@ -321,7 +321,7 @@ if(isset($_FILES['files'])){
 
 	public function dlt_drafts($id)
 	{
-		$query = $this->db->prepare("DELETE FROM `site_data` WHERE `id` = ? AND `status` = 'draft'");
+		$query = $this->db->prepare("DELETE FROM `site_data` WHERE `id` = ? AND `request_report` = 'draft'");
 		$query->bindValue(1,$id);
 				try{
 			$query->execute();
@@ -357,12 +357,12 @@ if(isset($_FILES['files'])){
 		}
 	}
 
-	public function update_outbox($id,$user_id,$website_type,$status,$origin,$site_name,$due_date,$no_of_pages,$facebook,$twitter,$instagram)
+	public function update_outbox($id,$user_id,$website_type,$request_report,$origin,$site_name,$due_date,$no_of_pages,$facebook,$twitter,$instagram)
 	{
-		$query = $this->db->prepare("UPDATE `site_data` SET `user_id` = ?, `website_type` = ?, `status` = ?, origin = ?, `site_name` = ?,`due_date` = ?,`no_of_pages` = ?,`facebook` = ?, `twitter` = ?, `instagram` = ? WHERE `id` = ?");
+		$query = $this->db->prepare("UPDATE `site_data` SET `user_id` = ?, `website_type` = ?, `request_report` = ?, origin = ?, `site_name` = ?,`due_date` = ?,`no_of_pages` = ?,`facebook` = ?, `twitter` = ?, `instagram` = ? WHERE `id` = ?");
 		$query->bindValue(1,$user_id);
 		$query->bindValue(2,$website_type);
-		$query->bindValue(3,$status);
+		$query->bindValue(3,$request_report);
 		$query->bindValue(4,$origin);
 		$query->bindValue(5,$site_name);
 		$query->bindValue(6,$due_date);
@@ -383,15 +383,15 @@ if(isset($_FILES['files'])){
 		header('Location:edit_features.php?id='.$id);
 	}
 	
-	public function save_outbox($user_id,$website_type,$status,$origin,$site_name,$due_date,$no_of_pages,$facebook,$twitter,$instagram)
+	public function save_outbox($user_id,$website_type,$request_report,$origin,$site_name,$due_date,$no_of_pages,$facebook,$twitter,$instagram)
 	{
 
-		$query = $this->db->prepare("INSERT INTO `site_data`(`user_id`, `website_type`, `status`, origin, `site_name`,`due_date`,`no_of_pages`, `facebook`, `twitter`, `instagram`) VALUES(?,?,?,?,?,?,?,?,?,?)");
+		$query = $this->db->prepare("INSERT INTO `site_data`(`user_id`, `website_type`, `request_report`, origin, `site_name`,`due_date`,`no_of_pages`, `facebook`, `twitter`, `instagram`) VALUES(?,?,?,?,?,?,?,?,?,?)");
 
 
 		$query->bindValue(1,$user_id);
 		$query->bindValue(2,$website_type);
-		$query->bindValue(3,$status);
+		$query->bindValue(3,$request_report);
 		$query->bindValue(4,$origin);
 		$query->bindValue(5,$site_name);
 		$query->bindValue(6,$due_date);
@@ -409,14 +409,14 @@ if(isset($_FILES['files'])){
 
 	}
 
-	public function update_send_draft($outboxid,$user_id,$website_type,$status,$origin,$site_name,$due_date,$no_of_pages,$facebook,$twitter,$instagram)
+	public function update_send_draft($outboxid,$user_id,$website_type,$request_report,$origin,$site_name,$due_date,$no_of_pages,$facebook,$twitter,$instagram)
 	{
 
-		$query = $this->db->prepare("UPDATE `site_data` SET `user_id` = ?, `website_type` = ?, `status` = ?, origin = ?, `site_name` = ?,`due_date` = ?,`no_of_pages` = ?, `facebook` = ?, `twitter` = ?, `instagram` = ? WHERE `id` = ? AND status = 'draft'");
+		$query = $this->db->prepare("UPDATE `site_data` SET `user_id` = ?, `website_type` = ?, `request_report` = ?, origin = ?, `site_name` = ?,`due_date` = ?,`no_of_pages` = ?, `facebook` = ?, `twitter` = ?, `instagram` = ? WHERE `id` = ? AND `request_report` = 'draft'");
 
 		$query->bindValue(1,$user_id);
 		$query->bindValue(2,$website_type);
-		$query->bindValue(3,$status);
+		$query->bindValue(3,$request_report);
 		$query->bindValue(4,$origin);
 		$query->bindValue(5,$site_name);
 		$query->bindValue(6,$due_date);
@@ -451,7 +451,7 @@ if(isset($_FILES['files'])){
 	}
 		public function dlt_outbox($outboxId)
 	{
-		$query = $this->db->prepare("DELETE FROM `site_data` WHERE `id` = ? AND `status` = 'sent'");
+		$query = $this->db->prepare("DELETE FROM `site_data` WHERE `id` = ? AND `request_report` = 'sent'");
 		$query->bindValue(1,$outboxId);
 				try{
 			$query->execute();
@@ -461,15 +461,15 @@ if(isset($_FILES['files'])){
 		}
 	}
 
-	public function update_n_save_outbox($id,$user_id,$website_type,$status,$origin,$site_name,$due_date,$no_of_pages,$facebook,$twitter,$instagram)
+	public function update_n_save_outbox($id,$user_id,$website_type,$request_report,$origin,$site_name,$due_date,$no_of_pages,$facebook,$twitter,$instagram)
 	{
 
-		$query = $this->db->prepare("UPDATE `site_data` SET `user_id` = ?, `website_type` = ?, `status` = ?, origin = ?, `site_name` = ?,`due_date` = ?,`no_of_pages` = ?, `facebook` = ?, `twitter` = ?, `instagram` = ? WHERE `id` = ? AND status = 'draft'");
+		$query = $this->db->prepare("UPDATE `site_data` SET `user_id` = ?, `website_type` = ?, `request_report` = ?, origin = ?, `site_name` = ?,`due_date` = ?,`no_of_pages` = ?, `facebook` = ?, `twitter` = ?, `instagram` = ? WHERE `id` = ? AND request_report = 'draft'");
 
 
 		$query->bindValue(1,$user_id);
 		$query->bindValue(2,$website_type);
-		$query->bindValue(3,$status);
+		$query->bindValue(3,$request_report);
 		$query->bindValue(4,$origin);
 		$query->bindValue(5,$site_name);
 		$query->bindValue(6,$due_date);
@@ -512,7 +512,7 @@ if(isset($_FILES['files'])){
 
 	public function updateStatus($id)
 	{
-		$query = $this->db->prepare("UPDATE `site_data` SET `status` = 'sent' WHERE `id` = ?");
+		$query = $this->db->prepare("UPDATE `site_data` SET `request_report` = 'sent' WHERE `id` = ?");
 		$query->bindValue(1,$id);
 
 			try {
@@ -569,8 +569,7 @@ if(isset($_FILES['files'])){
 
 	public function viewInbox($site_id)
 	{
-		$query=$this->db->prepare("SELECT t1.designer_id, t1.quote_accepted, t1.quote_price,t1.finish_date,t1.quote_num,t1.basic_m_amt,t1.advanced_m_amt,t1.basic_m_period,t1.advanced_m_period, t2.id,t2.email,t2.contacts, t2.username, t3.id FROM designer t2 INNER JOIN designer_quote t1 ON t1.designer_id=t2.id INNER JOIN site_data t3 ON t3.id = t1.site_id
-		 WHERE `site_id` = ? AND t1.quote_accepted = 'No'");
+		$query=$this->db->prepare("SELECT * FROM designer_quote t1 INNER JOIN designer t2 ON t1.designe_id=t2.id INNER JOIN site_data t3 ON t3.id = t1.site_id WHERE t1.site_id = ? AND t1.quote_accepted = 'No'");
 		$query->bindValue(1,$site_id);
 
 
@@ -713,14 +712,15 @@ public function all_uploaded_files(){
 	}	
 
 		/*Add status yes in designer_quote table column status1 when client accept quotation*/
-	public function addStatus($dd,$site_id)
+	public function addStatus($dd,$site_id,$q_id)
 	{
 		$quote_accepted = 'yes';
-		$query = $this->db->prepare("UPDATE `designer_quote` SET `date_accepted` = ?, `quote_accepted` = ? WHERE `site_id` = ?");
+		$query = $this->db->prepare("UPDATE `designer_quote` SET `date_accepted` = ?, `quote_accepted` = ? WHERE `site_id` = ? AND q_id = ?");
 		
 		$query->bindValue(1,$dd);
 		$query->bindValue(2,$quote_accepted);
 		$query->bindValue(3,$site_id);
+		$query->bindValue(4,$q_id);
 
 		if ($query) {
 			$Qs = 'no';
@@ -740,7 +740,7 @@ public function all_uploaded_files(){
 
 		public function ViewAcceptedQoutes($user_id)
 	{
-		$query = $this->db->prepare("SELECT t1.id, t1.designer_id,t1.site_id,t1.quote_price,t1.finish_date,t1.date_accepted,t1.basic_m_amt, t1.advanced_m_amt,t1.basic_m_period,t1.advanced_m_period, t2.id, t2.user_id,t3.id, t3.username FROM designer_quote t1 INNER JOIN site_data t2 ON t2.id = t1.site_id INNER JOIN designer t3 ON t3.id = t1.designer_id WHERE t2.user_id = ?");
+		$query = $this->db->prepare("SELECT t1.q_id, t1.designe_id,t1.site_id,t1.quote_price,t1.finish_date,t1.date_accepted,t1.basic_m_amt, t1.advanced_m_amt,t1.basic_m_period,t1.advanced_m_period, t2.id, t2.user_id,t3.id, t3.username FROM designer_quote t1 INNER JOIN site_data t2 ON t2.id = t1.site_id INNER JOIN designer t3 ON t3.id = t1.designe_id WHERE t2.user_id = ?");
 		
 		$query->bindValue(1,$user_id);
 		
@@ -761,11 +761,12 @@ public function all_uploaded_files(){
 	public function updateDDAccepted($site_id,$dd,$code_Status, $q_id)
 	{
 		
-		$query=$this->db->prepare("UPDATE designer_quote SET date_accepted = ?, quote_accepted = ? WHERE site_id = ?");
+		$query=$this->db->prepare("UPDATE designer_quote SET date_accepted = ?, quote_accepted = ? WHERE site_id = ? AND q_id = ?");
 
 		$query->bindValue(1,$dd);
 		$query->bindValue(2,$code_Status);
-		$query->bindValue(3,$site_id);		
+		$query->bindValue(3,$site_id);	
+		$query->bindValue(4,$q_id);	
 		
 		try {
 			$query->execute();
@@ -773,7 +774,27 @@ public function all_uploaded_files(){
 		} catch (PDOException $e) {
 			die($e->getMessage());
 		}
-		header('location:Payment_type_page.php?site_id='.$site_id);
+		
+}
+
+
+	/*update site data*/
+	public function updatedesignerId($site_id,$designer_id)
+	{
+		
+		$query=$this->db->prepare("UPDATE `site_data` SET `designer_id` = ? WHERE `id` = ? ");
+
+	
+		$query->bindValue(1,$designer_id);	
+		$query->bindValue(2,$site_id);	
+		
+		try {
+			$query->execute();
+
+		} catch (PDOException $e) {
+			die($e->getMessage());
+		}
+		
 }
 	
 

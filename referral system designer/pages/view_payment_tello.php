@@ -5,8 +5,8 @@ $general->logged_out_protect();
 
 $username  = htmlentities($user['username']);
 $user_id  = htmlentities($user['id']);
-$id = $_GET['id'];
-$view_payment = $designer->view_payment_tello($id); 
+$site_id = $_GET['id'];
+$view_payment = $designer->view_payment_tello($site_id); 
 
 ?>
 

@@ -1,5 +1,5 @@
 <?php
-$thispage = 'Payment_type_page';
+$thispage = 'payment_method_page';
 error_reporting(E_ALL);
 require '../core/init.php';
 
@@ -8,15 +8,30 @@ $general->logged_out_protect();
 $user_id  = htmlentities($user['id']);
 
 $site_id = $_GET['site_id'];
+$d_q_id = $_GET['d_q_id'];
 
 
-if (isset($_GET['submit'])) {
+if (isset($_POST['submit'])) {
 
-$payment_type               = htmlentities($_GET['payment_type']);
-$payment_method               = htmlentities($_GET['payment_method']);
-$client_status = 'Pending';
+$payment_method               = htmlentities($_POST['payment_method']);
+$payment_type             = htmlentities($_POST['payment_type']);
 
-$client_payment->client_pay($user_id,$payment_type,$payment_method,$client_status);
+if($payment_method == 'Direct Payment')
+{
+	$client_status = 'Pending';
+}
+elseif($payment_method == 'EFT payment')
+{
+	$client_status = 'Completed';
+}
+elseif($payment_method == 'Credit Payment')
+{
+	$client_status = 'Completed';
+}
+
+
+
+$client_payment->client_pay($user_id,$payment_method,$payment_type,$client_status,$site_id,$d_q_id);
 
 }
 
@@ -25,26 +40,26 @@ $client_payment->client_pay($user_id,$payment_type,$payment_method,$client_statu
 <html>
 <head>
 	<body>
-<form action="#" method="get">
+<form method="POST">
  <table >
 
-        <select name="payment_type" required="">
+        <select name="payment_method" required="">
 
-           <option value="">Payment Type</option> 
+           <option value="">Payment Method</option> 
            <option value="Direct Payment">Direct Payment</option>
            <option value="EFT payment">EFT payment</option>
            <option value="Credit Payment">Credit Payment</option>
         </select> <br><br><br><br><br>
 
-        <select name="payment_method" required="">
+        <select name="payment_type" required="">
 
-           <option value="">Payment Method</option> 
+           <option value="">Payment Type</option> 
            <option value="Deposit">Deposit 50%</option>
            <option value="Full Amount">Full Amount 100%</option>
           
         </select> <br><br><br><br><br>
  
-    <input type="submit" value="Save" name = "submit">
+    <input type="submit" value="Save" name ="submit">
   </table>
   
   </form>

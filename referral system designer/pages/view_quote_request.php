@@ -45,7 +45,7 @@ Template : <?php echo $row['template_id']; ?>
 <br><br>
 
 
-Status : <?php echo $row['status']; ?>
+Status : <?php echo $row['request_report']; ?>
 <br><br>
 
 Origin : <?php echo $row['origin'];?>

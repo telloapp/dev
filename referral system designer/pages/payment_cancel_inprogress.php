@@ -6,7 +6,7 @@ $username  = htmlentities($user['username']);
 $user_id  = htmlentities($user['id']);
 
 //$id = $_GET['id'];
-$view_payment = $designer->cancel_site_inprogress($user_id); 
+$view_payment = $designer->cancel_site_inprogress(); 
 
 ?>
 
@@ -19,8 +19,8 @@ $view_payment = $designer->cancel_site_inprogress($user_id);
   
  </div>
 <form>
-<button formaction="cancelled_inprogress10.php">Go Back</button> <br><br><br><br>
-</form>
+<button formaction="cancelled_inprogress.php">Go Back</button> <br><br><br><br>
+
 </head>
 
 <body>
@@ -34,6 +34,7 @@ $view_payment = $designer->cancel_site_inprogress($user_id);
     <th>Amount Paid</th>
     <th>Date</th>
     <th>Amount Forfeited</th>
+    <th>Site Name</th>
 
      				<?php foreach ($view_payment as $row) { ?>
                     <div>
@@ -49,10 +50,12 @@ $view_payment = $designer->cancel_site_inprogress($user_id);
                         <td><p><?php echo "R " ; ?><?php echo $row['amount']; ?></p></td>
                         <td><p><?php echo $row['date']; ?></p></td>
                         <td><p><?php echo "R ". $amount_due; ?></p></td>
+                        <td><p><?php echo $row['site_name']; ?></p></td>
                         </tr>
                     </div>
                    <?php } ?> 
-    </table>          
+    </table>   
+
                   
 </body>
 

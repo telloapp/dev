@@ -12,7 +12,7 @@ class client_project{
 	public function view_completedsite($user_id){
 		global $db;
 
-		$query	= $this->db->prepare("SELECT * FROM `site_data` where (statustwo = 'Done' AND statusthree = 'Not Cancelled') AND user_id=?");
+		$query	= $this->db->prepare("SELECT * FROM `site_data` where (progress_status = 'Completed' AND cancel_status = 'Not cancelled') AND user_id=?");
 
 		$query->bindValue(1,$user_id);
 
@@ -29,7 +29,7 @@ class client_project{
 	public function view_inprogress(){
 		global $db;
 
-		$query	= $this->db->prepare("SELECT * FROM `site_data` where statustwo = 'Not Done'");
+		$query	= $this->db->prepare("SELECT * FROM `site_data` where progress_status  = 'Inprogress' AND cancel_status != 'cancelled' AND `request_report` != 'draft'");
 
 		try {
 			$query->execute();
@@ -176,17 +176,17 @@ public function count_revisions($id,$site_id)
 
 	}
 
-	public function update_statushtree($status3,$cancell_date,$id){
+	public function update_cancel_status($cancel_status,$cancell_date,$id){
 
 		$query	= $this->db->prepare("UPDATE `site_data` SET 
 
-									   `statusthree`	= ?,
+									   `cancel_status`	= ?,
 									   `cancell_date`	= ?
 
 									   WHERE `id`	= ? 
 									   ");
 
-		$query->bindValue(1, $status3);
+		$query->bindValue(1, $cancel_status);
 		$query->bindValue(2, $cancell_date);
 		$query->bindValue(3, $id);
 	
@@ -201,13 +201,13 @@ public function count_revisions($id,$site_id)
 	}
 
 
- public function insert_in_to_status($statusthree) {
+ public function insert_in_to_status($cancel_status) {
 	 
 	 	
-		$query=$this->db->prepare("INSERT INTO site_data (statusthree) VALUES (?)");
+		$query=$this->db->prepare("INSERT INTO site_data (cancel_status) VALUES (?)");
 		
 	
-		$query->bindValue(1,$statusthree);
+		$query->bindValue(1,$cancel_status);
 		
 		
 		try{
@@ -273,7 +273,7 @@ public function count_revisions($id,$site_id)
 
 public function list_cancelled_site($id)
 	{
-		$query = $this->db->prepare("SELECT * FROM site_data  WHERE statusthree = 'cancelled' AND user_id =?");
+		$query = $this->db->prepare("SELECT * FROM site_data  WHERE cancel_status = 'cancelled' AND user_id =?");
         
        $query -> bindValue(1,$id);
 		try
@@ -289,17 +289,17 @@ public function list_cancelled_site($id)
 	}
 
 
-	public function update_statustwo($statustwo,$aprove_date,$id){
+	public function update_progress_status($progress_status,$aprove_date,$id){
 
 		$query	= $this->db->prepare("UPDATE `site_data` SET 
 
-									   `statustwo`	= ?,
+									   `progress_status`	= ?,
 									   `aprove_date`	= ?
 
 									   WHERE `id`	= ? 
 									   ");
 
-		$query->bindValue(1, $statustwo);
+		$query->bindValue(1, $progress_status);
 		$query->bindValue(2, $aprove_date);
 		$query->bindValue(3, $id);
 	
@@ -315,7 +315,7 @@ public function list_cancelled_site($id)
 
 	public function list_aproved_site($id)
 	{
-		$query = $this->db->prepare("SELECT * FROM site_data  WHERE statustwo = 'Approved' AND user_id =?");
+		$query = $this->db->prepare("SELECT * FROM site_data  WHERE progress_status  = 'Approved' AND user_id =?");
         
        $query -> bindValue(1,$id);
 		try
@@ -331,16 +331,16 @@ public function list_cancelled_site($id)
 	}
 
 
-	public function update_revisions($statustwo,$id){
+	public function update_revisions($progress_status,$id){
 
 		$query	= $this->db->prepare("UPDATE `site_data` SET 
 
-									   `statustwo`	= ?
+									   `progress_status `	= ?
 
 									   WHERE `id`	= ? 
 									   ");
 
-		$query->bindValue(1, $statustwo);
+		$query->bindValue(1, $progress_status);
 		$query->bindValue(2, $id);
 	
 		

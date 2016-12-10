@@ -65,7 +65,7 @@ $user_id  = htmlentities($user['id']); // storing the user's username after clea
 				                          
 									     </div>
 									    </div>
-                      <a href="view_revision.php?rid=<?php echo $row['rid']; ?>" class="btn btn-default btn-xs" ><i class="fa fa-trash">View Revision</i></a>
+                      <a href="view_revision.php?id=<?php echo $row['id']; ?>" class="btn btn-default btn-xs" ><i class="fa fa-trash">View Revision</i></a>
                               </td>
               
                               </tr>

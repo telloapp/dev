@@ -6,9 +6,9 @@ $general->logged_out_protect();
 $username  = htmlentities($user['username']);
 $user_id  = htmlentities($user['id']);
 
-$id = $_GET['id'];
-$view_payment = $designer->view_payment_complete($id);
-$v_paymentBal = $designer->view_payment_completeBalnce($id); 
+$site_id = $_GET['site_id'];
+$view_payment = $designer->view_payment_complete($site_id);
+$v_paymentBal = $designer->view_payment_completeBalnce($site_id); 
 
 ?>
 

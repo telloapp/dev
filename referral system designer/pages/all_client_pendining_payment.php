@@ -26,7 +26,7 @@ foreach($all_client_Pending as $key) {?>
                            <tr> 
               <td><a><?php echo $key['contacts'] ?></a></td>
               <td><a><?php echo $key['username'] ?></a></td>
-              <td> <a href="index1.php?u_id=<?php echo $key['u_id'];?>">Upload your invoce</a>&nbsp;&nbsp;&nbsp;<a href="view.php?u_id=<?php echo $key['u_id'];?>">View</a></td>
+              <td> <a href="index1.php?c_id=<?php echo $key['c_id'];?>">Upload your invoce</a>&nbsp;&nbsp;&nbsp;<a href="view1.php?c_id=<?php echo $key['c_id'];?>">View</a></td>
               <td><a><?php echo $key['payment_type'] ?></a></td>
               <td><a><?php echo $key['payment_method'] ?></a></td>
               <td><a><?php echo $key['amount'] ?></a></td>

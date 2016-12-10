@@ -8,15 +8,6 @@ $user_id 	= htmlentities($user['id']); // storing the user's username after clea
 $site_id = $_GET['id'];
 $designerQuote = $client->viewInbox($site_id);
 
-if (isset($_POST['submit'])) { 
-
-$dd = date('Y-m-d');
-$code_Status = "Yes";
-
-$client->addStatus($dd,$site_id);
-$client->updateDDAccepted($site_id,$dd,$code_Status);
-
-}
 
 
 ?>
@@ -47,9 +38,9 @@ Date to finish :&nbsp;<?php echo $key['finish_date'];?>
 Basic Maintenance amount :&nbsp;<?php echo $key['basic_m_amt'];?>&nbsp;Period :&nbsp;<?php echo $key['basic_m_period'];?>&nbsp;days<br>
 advanced Maintenance amount :&nbsp;<?php echo $key['advanced_m_amt'];?>&nbsp;Period :&nbsp;<?php echo $key['advanced_m_period'];?>&nbsp;days<br><br>
 
-<input type="hidden" name="d_q_id" value="<?php echo "$site_id";?>">
+<input type="hidden" name="site_id" value="<?php echo "$site_id";?>">
 
-<input type="submit" name="submit" value="accept Quotation">
+<a href="accept_quote.php?q_id=<?php echo $key['q_id'];?>&site_id=<?php echo "$site_id";?>&designe_id=<?php echo $key['designe_id'];?>">Accept quote</a>
 
 <?php } }?>
 </form>

@@ -106,12 +106,6 @@ $project_progress = $projects->project_progress($id);
 				                            <div class="">
 				                            Designer  Due Date :  <?php echo $row['due_date']; ?>
 				                            </div>
-				                             <div class="">
-				                             Features:  <?php echo $row['features']; ?>
-				                            </div>
-				                            <div class="">
-				                             Extrass :  <?php echo $row['extras']; ?>
-				                            </div>
 				                            <div class="">
 				                             Business Profile :  <?php echo $row['business_profile']; ?>
 				                            </div>
@@ -157,6 +151,8 @@ $project_progress = $projects->project_progress($id);
                               </td>
               
                               </tr>
+                                                           <hr>
+
                               <?php } ?>                              
                             </table>
                              <hr>

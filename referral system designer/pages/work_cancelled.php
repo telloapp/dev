@@ -1,14 +1,12 @@
-
 <?php
 require '../designers/init.php';
 $general->logged_out_protect();
-//$id ='1';
-//$id = $_GET['id'];
+
 $username  = htmlentities($user['username']);
 $user_id  = htmlentities($user['id']);
 
-$list_work_inprogress = $designer->site_cancelled($user_id);
-$all_site_data = $designer->all_site_data(); 
+//$id = $_GET['id'];
+$view_payment = $designer->cancel_site_completed(); 
 
 ?>
 
@@ -16,15 +14,12 @@ $all_site_data = $designer->all_site_data();
 <html>
 
 <head>
-  <div align="center">
-  <b>Cancelled Sites!</b>
-</div>
+<div align="center">
+    <h1><img src="image/invoice1.png" /></h1>
+  
+ </div>
 <form>
-
-<button formaction="Cancelled_inprogress10.php">Go Back</button> <br><br><br><br>
-
-</form>
-<hr>
+<button formaction="cancelled_inprogress.php">Go Back</button> <br><br><br><br>
 
 </head>
 
@@ -32,27 +27,36 @@ $all_site_data = $designer->all_site_data();
 
     <header>
     </header>
-
     <table align="center" width="1000" border="5" cellspacing="5" cellpadding="5">
-    
+    <th>Amount Deducted</th>
+    <th>Amount Due</th>
+    <th>Payment Method</th>
+    <th>Amount Paid</th>
+    <th>Date</th>
+    <th>Amount Forfeited</th>
     <th>Site Name</th>
-    <th>View Payment</th>
-    
-    
-                  <?php foreach ($list_work_inprogress as $row) { ?>
-                    <tr>
-                    <dev>
-                      
-                    <td><?php echo $row['site_name']; ?></td>
 
-                    <form>                   
-                      <td><a href="view_payment_cancelled.php?id=<?php echo $row['id']; ?>">Payment From Tello</a></td>                     
-                    </form>
+            <?php foreach ($view_payment as $row) { ?>
+                    <div>
+                    <?php $perc = 10;
+                          $amt_due_p = ($row['amount'] - 700);
+                          $perc_deduct = ($perc / 100) * $amt_due_p;
+                          $amount_due = ($amt_due_p - $perc_deduct); ?>
+          
+                        <tr>
+                        <td><p><?php echo "R 700"; ?></p></td>
+                        <td><p><?php echo "R "; ?><?php echo $perc_deduct; ?></p></td>
+                        <td><p><?php echo $row['payment_method']; ?></p></td>
+                        <td><p><?php echo "R " ; ?><?php echo $row['amount']; ?></p></td>
+                        <td><p><?php echo $row['date']; ?></p></td>
+                        <td><p><?php echo "R ". $amount_due; ?></p></td>
+                        <td><p><?php echo $row['site_name']; ?></p></td>
+                        </tr>
+                    </div>
+                   <?php } ?> 
+    </table>   
 
-                    </dev>
-                   </tr>
-                  <?php } ?>
-   </table>
+                  
 </body>
 
 </html>

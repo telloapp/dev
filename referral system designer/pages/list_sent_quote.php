@@ -5,7 +5,7 @@ $designer_id  = htmlentities($user['id']);
 
 //$id = $_GET['id'];
 
-$list = $quotation-> list_all_sentquote($designer_id);
+$list = $quotation->list_all_sentquote($designer_id);
 
 ?>
 <!DOCTYPE html>
@@ -35,8 +35,8 @@ $list = $quotation-> list_all_sentquote($designer_id);
    
  <br>
 
-   <a href="preview_sent_quote.php?id=<?php echo $key['id']; ?>">View Details</a>
-<a href="delete_save_quote.php?id=<?php echo $key['id']; ?>"onclick='return confirm("Are you sure you want to delete this?")'>DELETE</a>
+   <a href="preview_sent_quote.php?id=<?php echo $key['q_id']; ?>">View Details</a>
+<a href="delete_save_quote.php?id=<?php echo $key['q_id']; ?>"onclick='return confirm("Are you sure you want to delete this?")'>DELETE</a>
 
   <hr>  
   <?php }?>

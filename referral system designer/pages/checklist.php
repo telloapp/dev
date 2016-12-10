@@ -151,7 +151,7 @@ $date= date('Y-m-d');
                               <tr>
                     <form method="post" action="" >
 
-                 <td><input readonly type="text"  name="checklist" value="<?php echo $row['checklist']; ?>" />
+                 <td><input readonly type="text"  name="checklist" value="<?php echo $row['pages']; ?>" />
                 <td><input hidden type="text"  name="check_id" value="<?php echo $row['id']; ?>" />
                    
 
@@ -161,8 +161,7 @@ $date= date('Y-m-d');
 
                           <?php echo $row['c_status']; ?>
 
-                   <?php } else if ($row['c_status']=='Send') {?>
-
+                   <?php } else if ($row['c_status']=='Not Done') {?>
                 <td><input id="submit" type="submit" class="btn btn-lg rounded metro btn-warning" name="submit" value="Done" />
 
                   <?php } ?>
@@ -199,7 +198,7 @@ $date= date('Y-m-d');
 
                                 <?php } else if ($num_rows < "5") { ?>
 
-                        <button type="submit" name="checklist_completed" disabled OnClick=" location.href='inprogress_project_done.php' ">Site Complet</button>
+                        <button type="submit" name="checklist_completed" disabled OnClick=" location.href='inprogress_project_done.php' ">Site Complete</button>
 
                              <!--button type="submit" name="checklist_completed" disabled  OnClick=" location.href='inprogress_project_done.php' ">Site Complete Disabled</button-->
 

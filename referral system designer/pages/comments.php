@@ -19,7 +19,7 @@ $chartforum->delete_notifications($m_id,$designer_id); // funtion to update stat
 	//$message_id     = htmlentities($_POST['message_id']);
 
 	$comments = $chartforum->insert_comments($m_id,$designer_id,$reply);
-	header('Location: list_messages.php');
+	header('Location: comments.php?m_id='.$m_id.'&message='.$message);
 
 	}
 

@@ -35,6 +35,7 @@ header("Location: " . $_SERVER['REQUEST_URI']);
 </head>
 <body>
 
+<a href="in_progress.php">Go Back</a>
 <h1>list of features </h1>
 
 <div id="myProgress">

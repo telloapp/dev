@@ -4,7 +4,7 @@ $general->logged_out_protect();
 $username 	= htmlentities($user['username']); // storing the user's username after clearning for any html tags.
 $user_id 	= htmlentities($user['id']); // storing the user's username after clearning for any html tags.
 if (isset($_POST['btn-upload'])) {
-$status = "sent";
+$request_report = "sent";
 $origin = "tello";
 $site_type		= htmlentities($_POST['website_type']);
 $site_name 		= htmlentities($_POST['site_name']);
@@ -13,12 +13,12 @@ $no_of_pages 	= htmlentities($_POST['no_of_pages']);
 $facebook 		= htmlentities($_POST['facebook']);
 $twitter 		= htmlentities($_POST['twitter']);
 $instagram 		= htmlentities($_POST['instagram']);
-$client->insert_siteData($user_id,$site_type,$status,$origin,$site_name,$due_date,$no_of_pages,$facebook,$twitter,$instagram);
+$client->insert_siteData($user_id,$site_type,$request_report,$origin,$site_name,$due_date,$no_of_pages,$facebook,$twitter,$instagram);
 $client->upload_file();
 $id = mysql_insert_id();
 }
 else if (isset($_POST['save'])) {
-$status = "draft";
+$request_report = "draft";
 $origin = "tello";
 $site_type		= htmlentities($_POST['website_type']);
 $site_name 		= htmlentities($_POST['site_name']);
@@ -27,7 +27,7 @@ $no_of_pages 	= htmlentities($_POST['no_of_pages']);
 $facebook 		= htmlentities($_POST['facebook']);
 $twitter 		= htmlentities($_POST['twitter']);
 $instagram 		= htmlentities($_POST['instagram']);
-$client-> insert_siteData($user_id,$site_type,$status,$origin,$site_name,$due_date,$no_of_pages,$facebook,$twitter,$instagram);
+$client-> insert_siteData($user_id,$site_type,$request_report,$origin,$site_name,$due_date,$no_of_pages,$facebook,$twitter,$instagram);
 header('location:client_panel.php');	
 }
 ?>

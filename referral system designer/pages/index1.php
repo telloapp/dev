@@ -4,7 +4,7 @@ error_reporting(E_ALL);
 require '../core/init.php';
 
 $general->logged_out_protect();
-
+$c_id=$_GET['c_id'];
 ?>
 <!DOCTYPE html>
 <html >
@@ -15,7 +15,7 @@ $general->logged_out_protect();
 <body>
 
 <div id="body">
- <form action="upload.php" method="post" enctype="multipart/form-data">
+ <form action="upload.php?c_id=<?php echo "$c_id"; ?>" method="post" enctype="multipart/form-data">
  <input type="file" name="file" />
  <button type="submit" name="btn-upload">upload</button>
  </form>

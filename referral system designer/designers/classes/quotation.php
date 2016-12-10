@@ -13,7 +13,7 @@ class quotation
 public function list_allquote_request()
 {
 
-$query = $this->db->prepare("SELECT * FROM site_data WHERE status = 'sent'");
+$query = $this->db->prepare("SELECT * FROM site_data WHERE request_report = 'sent'");
 
    try{
 			$query->execute();
@@ -65,7 +65,7 @@ $query = $this->db->prepare("SELECT * FROM features t1 INNER JOIN selected_featu
 
 public function list_allupdated_quote_request()
 {
- $query = $this->db->prepare("SELECT * FROM `site_data` WHERE status = 'saved'");
+ $query = $this->db->prepare("SELECT * FROM `site_data` WHERE request_report = 'saved'");
 
    try{
 			$query->execute();
@@ -80,7 +80,7 @@ public function list_allupdated_quote_request()
 
 public function list_all_sentquote($designer_id)
 {
-$query = $this->db->prepare("SELECT * FROM `designer_quote` WHERE status = 'send' AND designer_id = ? ORDER BY id DESC");
+$query = $this->db->prepare("SELECT * FROM `designer_quote` WHERE request_report = 'sent' AND designe_id = ? ORDER BY q_id DESC");
 
 $query->bindValue(1, $designer_id);
 
@@ -98,7 +98,7 @@ $query->bindValue(1, $designer_id);
 
 public function list_all_draft_quote($designer_id)
 {
-$query = $this->db->prepare("SELECT * FROM `designer_quote` WHERE status = 'draft' AND designer_id = ? ORDER BY id DESC ");
+$query = $this->db->prepare("SELECT * FROM `designer_quote` WHERE request_report = 'draft' AND designe_id = ? ORDER BY q_id DESC ");
 
 $query->bindValue(1, $designer_id);
 
@@ -114,7 +114,7 @@ $query->bindValue(1, $designer_id);
 
 public function delete_quote($id) {
 
-		$query = $this->db->prepare("DELETE FROM designer_quote WHERE id = ?");
+		$query = $this->db->prepare("DELETE FROM designer_quote WHERE q_id = ?");
 	
 		$query->bindValue(1,$id);
 		
@@ -134,7 +134,7 @@ public function create_quote($designer_id, $site_id, $quote_price, $finish_date,
 {
 
 $quote_num = rand(100,1000);
-$query=$this->db->prepare("INSERT INTO designer_quote (designer_id, site_id, quote_price, finish_date, quote_num, own_maintenance, basic_m_amt, advanced_m_amt,basic_m_period,advanced_m_period, status, quote_accepted) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
+$query=$this->db->prepare("INSERT INTO designer_quote (designe_id, site_id, quote_price, finish_date, quote_num, own_maintenance, basic_m_amt, advanced_m_amt,basic_m_period,advanced_m_period, request_report, quote_accepted) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
 
 
 
@@ -167,7 +167,7 @@ $query=$this->db->prepare("INSERT INTO designer_quote (designer_id, site_id, quo
 	{
       
 
-		$query = $this->db->prepare("UPDATE designer_quote SET designer_id = ?, 
+		$query = $this->db->prepare("UPDATE designer_quote SET designe_id = ?, 
 			                                                   quote_price = ? , 
 			                                                   finish_date = ?,
 			                                                   own_maintenance = ?,
@@ -177,7 +177,7 @@ $query=$this->db->prepare("INSERT INTO designer_quote (designer_id, site_id, quo
 			                                                   advanced_m_period = ?, 
 			                                                   quote_accepted = ? 
 
-			                                                   WHERE  status = 'draft'");
+			                                                   WHERE  request_report = 'draft'");
 
 		$query->bindValue(1, $designer_id);
 		$query->bindValue(2, $quote_price); 
@@ -205,7 +205,7 @@ $query=$this->db->prepare("INSERT INTO designer_quote (designer_id, site_id, quo
 
 public function view_quote_details($id)
 {
-$query = $this->db->prepare("SELECT * FROM `designer_quote` WHERE  id = ? ");
+$query = $this->db->prepare("SELECT * FROM `designer_quote` WHERE  q_id = ? ");
 
 $query->bindValue(1, $id);
 
@@ -221,7 +221,7 @@ $query->bindValue(1, $id);
 
 public function list_all_rejected_quote($designer_id)
 {
-$query = $this->db->prepare("SELECT * FROM `designer_quote` WHERE quote_accepted = 'No' AND designer_id = ? ");
+$query = $this->db->prepare("SELECT * FROM `designer_quote` WHERE quote_accepted = 'No' AND designe_id = ? ");
 
 $query->bindValue(1, $designer_id);
 
@@ -237,7 +237,7 @@ $query->bindValue(1, $designer_id);
 
 public function delete_rejected_quote($id) {
 
-		$query = $this->db->prepare("DELETE FROM designer_quote WHERE id = ?");
+		$query = $this->db->prepare("DELETE FROM designer_quote WHERE q_id = ?");
 	
 		$query->bindValue(1,$id);
 		
@@ -255,7 +255,7 @@ public function delete_rejected_quote($id) {
 		public function list_infor_quote($id)
 {
 
-$query = $this->db->prepare("SELECT * FROM designer_quote t1 INNER JOIN site_data t2 ON t1.site_id = t2.id  WHERE t1.id=?");
+$query = $this->db->prepare("SELECT * FROM designer_quote t1 INNER JOIN site_data t2 ON t1.site_id = t2.id  WHERE t1.q_id=?");
 
   
   $query->bindValue(1,$id);
@@ -275,7 +275,7 @@ $query = $this->db->prepare("SELECT * FROM designer_quote t1 INNER JOIN site_dat
 public function list_quote_request()
 	{
      
-     $query = $this->db->prepare("SELECT * FROM site_data WHERE status = 'send'");
+     $query = $this->db->prepare("SELECT * FROM site_data WHERE request_report = 'sent'");
 
         try{
 			$query->execute();
@@ -292,7 +292,7 @@ public function list_quote_request()
 public function list_updated_quote_request()
 	{
      
-     $query = $this->db->prepare("SELECT * FROM site_data WHERE status = 'send'");
+     $query = $this->db->prepare("SELECT * FROM site_data WHERE request_report = 'sent'");
 
         try{
 			$query->execute();

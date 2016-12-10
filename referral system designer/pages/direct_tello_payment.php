@@ -3,9 +3,9 @@
 $thispage = 'upload';
 error_reporting(E_ALL);
 require '../core/init.php';
-$c_id = $_GET['c_id'];
+$id = $_GET['c_id'];
 
-$client_payment->insert_id($c_id);
+$client_payment->insert_id($id);
 ?>
 
 <html>
