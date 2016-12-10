@@ -50,11 +50,11 @@ header("Location: " . $_SERVER['REQUEST_URI']);
                                   <tr>
                                   <th><?php echo $row['site_name'] ?></a></th>
                                   <th><a title="handoutt" href="http://www.handoutt.co.za/" target="_blank" style="color: #0000FF;">Handout technologies</a></th>
-                                <th><a href="aprove_site.php?id=<?php echo $row['id'];?>">Aprrove Site</a></th>
+                                <th><a href="aprove_site.php?id=<?php echo $row['id']?>&designe_id=<?php echo $row['designe_id']?>">Aprrove Site</a></th>
 
-                                <th><a href="approve_revisions.php?id=<?php echo $row['id'];?>">Unhappy</a></th>
+                                <th><a href="approve_revisions.php?id=<?php echo $row['id']?>&designe_id=<?php echo $row['designe_id']?>">Unhappy</a></th>
 
-                                <th><a href="cancel_site.php?id=<?php echo $row['id'];?>"onclick='return confirm("Are you sure you want to Cancell Site?")'>Cancell Site</a></th>
+                                <th><a href="cancel_site.php?id=<?php echo $row['id']?>&designe_id=<?php echo $row['designe_id']?>"onclick='return confirm("Are you sure you want to Cancell Site?")'>Cancell Site</a></th>
 
                                
                               

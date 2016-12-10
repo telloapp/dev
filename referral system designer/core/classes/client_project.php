@@ -12,7 +12,7 @@ class client_project{
 	public function view_completedsite($user_id){
 		global $db;
 
-		$query	= $this->db->prepare("SELECT * FROM `site_data` where (progress_status = 'Completed' AND cancel_status = 'Not cancelled') AND user_id=?");
+		$query	= $this->db->prepare("SELECT * FROM site_data t1 INNER JOIN designer_quote t2 ON t1.id=t2.site_id where (progress_status = 'Completed' AND cancel_status = 'Not cancelled') AND user_id=?");
 
 		$query->bindValue(1,$user_id);
 
@@ -59,12 +59,12 @@ class client_project{
 	}
 
 
-	 public function insert_in_to_revision($user_id,$site_id, $status, $revision_data,$start_date,$end_date,$revision_num) {
+	 public function insert_in_to_revision($user_id,$site_id, $status, $revision_data,$start_date,$end_date,$revision_num,$designe_id) {
 	 	$start_date= date('Y-m-d');
 $end_date=  date('Y-m-d', strtotime(' + 3 days'));
 $revision_num= 'Complete';
 	 	
-		$query=$this->db->prepare("INSERT INTO revision (client_id, site_id, status, revision_data, start_date, end_date,revision_num) VALUES (?,?,?,?,?,?,?)");
+		$query=$this->db->prepare("INSERT INTO revision (client_id, site_id, status, revision_data, start_date, end_date,revision_num,designer_id) VALUES (?,?,?,?,?,?,?,?)");
 		$paydate	= time();
 	
 		$query->bindValue(1,$user_id);
@@ -74,6 +74,7 @@ $revision_num= 'Complete';
 		$query->bindValue(5,$start_date);
 		$query->bindValue(6,$end_date);
 		$query->bindValue(7,$revision_num);
+		$query->bindValue(8,$designe_id);
 		
 		try{
 			
@@ -335,7 +336,7 @@ public function list_cancelled_site($id)
 
 		$query	= $this->db->prepare("UPDATE `site_data` SET 
 
-									   `progress_status `	= ?
+									   `progress_status`	= ?
 
 									   WHERE `id`	= ? 
 									   ");

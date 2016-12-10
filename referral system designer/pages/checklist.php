@@ -25,7 +25,7 @@ if (isset($_POST['submit'])) {
 $check_id                = htmlentities($_POST['check_id']);
 
   $checklist_done = $projects->checklist_done($id,$check_id); 
- header('Location:inprogress_project.php');
+ header('Location:checklist.php?id='.$id);
 
   }
 

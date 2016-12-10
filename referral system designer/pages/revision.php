@@ -4,6 +4,7 @@ require '../core/init.php';
 $user_id   = htmlentities($user['id']); // storing the user's username after clearning for any html tags.
 
 $site_id = $_GET['site_id'];
+$designe_id = $_GET['designe_id'];
 $show_revisions =$client_project->view_project_tb($user_id);
 if(isset($_POST['save'])){
 
@@ -15,7 +16,7 @@ $end_date   =date('Y-m-d', strtotime(' + 3 days'));
     $revision_data            = htmlentities($_POST['revision_data']);
     
 
-$client_project->insert_in_to_revision($user_id,$site_id, $status, $revision_data,$start_date,$end_date,$revision_num); //insert function cshow_revisions
+$client_project->insert_in_to_revision($user_id,$site_id, $status, $revision_data,$start_date,$end_date,$revision_num,$designe_id); //insert function cshow_revisions
 
 }
 
