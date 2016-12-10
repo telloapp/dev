@@ -357,7 +357,7 @@ public function revision_projects($user_id)
 public function revision_projects_details($id) 
 
 	{
-		$query = $this->db->prepare("SELECT * FROM revision T1 INNER JOIN site_data T2 ON T1.site_id =T2.id WHERE T1.id= ? AND T1.designer_id =T2.designer_id" );
+		$query = $this->db->prepare("SELECT * FROM revision T1 INNER JOIN site_data T2 ON T1.site_id =T2.id WHERE T1.site_id= ? AND T1.designer_id =T2.designer_id" );
 		$query->bindValue(1,$id);
 
 
